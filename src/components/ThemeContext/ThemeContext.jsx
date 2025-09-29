@@ -1,0 +1,21 @@
+import React, { createContext, useState } from "react";
+import Header from "../Header/Header";
+
+export const ThemeContext = createContext();
+
+export default function ThemeProvider({children}) {
+  const [theme, setTheme] = useState("light");
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
+  return (
+    <div>
+      <ThemeContext.Provider
+        value={{ theme, toggleTheme }}
+      >
+        {children}
+      </ThemeContext.Provider>
+    </div>
+  );
+}
