@@ -6,7 +6,7 @@ import { ThemeContext } from "../ThemeContext/ThemeContext";
 
 export default function Header() {
   const { theme, toggleTheme } = useContext(ThemeContext);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div
@@ -19,17 +19,23 @@ export default function Header() {
       <div className={Style.imgWrap}>
         <img src={Img} alt="logo" />
       </div>
-      <div className={Style.linksWrap}>
+      <div className={Style.hamburger} onClick={() => setMenuOpen(!menuOpen)}>
+        ☰
+      </div>
+      <div className={Style.inputDiv}>
+        <input type="text" placeholder="Find your perfect outfit ✨" />
+      </div>
+      <div
+        className={`${Style.linksWrap} ${menuOpen ? Style.showMenu : ""}`}
+        onClick={() => setMenuOpen(false)}
+      >
         <ul>
           <li>
-            <input type="text" placeholder="Find your perfect outfit ✨" />
-          </li>
-          <li>
             <Link
               to="/"
               style={{ color: theme === "light" ? "#474747" : "#ebebeb" }}
             >
-              Home
+              Home Page
             </Link>
           </li>
           <li>
@@ -37,7 +43,7 @@ export default function Header() {
               to="/"
               style={{ color: theme === "light" ? "#474747" : "#ebebeb" }}
             >
-              Men
+              About Us
             </Link>
           </li>
           <li>
@@ -45,7 +51,7 @@ export default function Header() {
               to="/"
               style={{ color: theme === "light" ? "#474747" : "#ebebeb" }}
             >
-              Women
+              Services
             </Link>
           </li>
           <li>
@@ -53,39 +59,7 @@ export default function Header() {
               to="/"
               style={{ color: theme === "light" ? "#474747" : "#ebebeb" }}
             >
-              Kids
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/"
-              style={{ color: theme === "light" ? "#474747" : "#ebebeb" }}
-            >
-              Latest
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/"
-              style={{ color: theme === "light" ? "#474747" : "#ebebeb" }}
-            >
-              Profile
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/"
-              style={{ color: theme === "light" ? "#474747" : "#ebebeb" }}
-            >
-              Wishlist
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/"
-              style={{ color: theme === "light" ? "#474747" : "#ebebeb" }}
-            >
-              Checkout
+              FAQ
             </Link>
           </li>
           <li>
@@ -93,6 +67,23 @@ export default function Header() {
               {theme === "light" ? "🌙" : "☀️"}
             </button>
           </li>
+          <li>
+            <Link
+              to="/"
+              style={{ color: theme === "light" ? "#474747" : "#ebebeb" }}
+            >
+              Sign Up
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/"
+              style={{ color: theme === "light" ? "#474747" : "#ebebeb" }}
+            >
+              Login
+            </Link>
+          </li>
+          
         </ul>
       </div>
     </div>

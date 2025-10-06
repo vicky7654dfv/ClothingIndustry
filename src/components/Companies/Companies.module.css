@@ -1,0 +1,34 @@
+.clientListWrapper {
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+.clientsText {
+  margin: 2rem 0;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  
+}
+.clientList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6rem;
+  padding-bottom: 2rem;
+  animation: scroll-left 20s linear infinite;
+}
+.client img {
+  height: 60px;
+}
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.clientList:hover {
+  animation-play-state: paused;
+}

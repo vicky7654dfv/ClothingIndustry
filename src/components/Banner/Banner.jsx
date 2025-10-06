@@ -1,14 +1,15 @@
-import React from 'react'
-import Style from "./Banner.module.css"
-import Img1 from "../../assets/Banner/banner1.png"
-import Img2 from "../../assets/Banner/banner2.jpeg"
-
+import React from "react";
+import Style from "./Banner.module.css";
+import Vid from "../../assets/Banner/bannerVideo.mp4";
 export default function Banner() {
   return (
     <div className={Style.bannerWrap}>
-      <img className={Style.img1Wrap} src={Img2} alt="pic2" />
-      <img className={Style.img2Wrap} src={Img1} alt="pic1" />
-
+     <video src={Vid} autoPlay loop muted playsInline></video>
+     <div className={Style.textWrap}>
+      <h3>Clothing Industry</h3>
+      <p>Style isn’t just what you wear — it’s how you tell your story without saying a word. Dress bold. Live confident. Wear your vibe.</p>
+      <button>Shop now</button>
+     </div>
     </div>
-  )
+  );
 }
