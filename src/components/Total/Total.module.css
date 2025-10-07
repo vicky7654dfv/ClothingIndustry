@@ -1,0 +1,29 @@
+.totalWrap{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.box img{
+    height: 120px;
+    border-radius: 5rem 15rem 1rem 10rem;
+    margin-bottom: 10px;
+    transition:all 0.3s ease;
+}
+.box h2{
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+.box p{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.box img:hover{
+    transform: scale(1.02);
+}

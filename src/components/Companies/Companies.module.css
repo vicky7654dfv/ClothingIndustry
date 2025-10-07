@@ -8,7 +8,9 @@
   text-align: center;
   font-size: 1.2rem;
   font-weight: bold;
-  
+}
+.clientsText h1{
+  padding-top: 1rem;
 }
 .clientList {
   display: flex;
@@ -31,4 +33,15 @@
 }
 .clientList:hover {
   animation-play-state: paused;
+}
+/* Responsive site */
+
+@media (max-width: 426px){
+.client img{
+  height: 50px;
+}
+.clientList{
+  padding-bottom: 1rem;
+  
+}
 }

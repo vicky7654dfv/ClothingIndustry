@@ -18,7 +18,7 @@ export default function Companies() {
         color: theme === "light" ? "#474747ff" : "#ebebebff",
       }}>
         <div className={Style.clientsText}>
-        <h1>Companies</h1>
+        <h1>Brands</h1>
       </div>
       <div className={Style.clientListWrapper}>
         <div className={Style.clientList}>

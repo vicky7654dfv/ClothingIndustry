@@ -39,3 +39,75 @@
     color: beige;
 
 }
+
+/* Responsive site */
+@media (max-width: 1024px){
+    .textWrap{
+    top: 35%;
+    left: 13%;
+}
+.textWrap h3{
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+.textWrap p{
+    font-size: 1.3rem;
+    max-width: 600px;
+    margin-bottom: 0.5rem;
+}
+.textWrap button{
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+}
+}
+
+@media (max-width: 768px){
+      .textWrap{
+    top: 45%;
+    left: 12%;
+}
+.textWrap h3{
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+.textWrap p{
+    font-size: 1.1rem;
+    max-width: 400px;
+    margin-bottom: 0.5rem;
+}
+.textWrap button{
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 1rem 1rem;
+    border-radius: 1rem;
+}
+}
+@media (max-width:426px){
+    .bannerWrap{
+        height: 380px;
+    }
+    .bannerWrap video{
+        height: 420px;
+    }
+    .textWrap{
+    top: 30%;
+    left: 8%;
+}
+.textWrap h3{
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+.textWrap p{
+    font-size: 1.3rem;
+    max-width: 350px;
+    margin-bottom: 0.5rem;
+}
+.textWrap button{
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 1rem 1rem;
+    border-radius: 1rem;
+}
+}
