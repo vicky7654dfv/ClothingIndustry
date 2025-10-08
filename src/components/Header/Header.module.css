@@ -80,12 +80,12 @@
   font-weight: 500;
   border-radius: 5px;
   padding: 0 2px;
-  background-color: indianred;
+  background-color: #474747;
   transition: all 0.4s ease;
 }
 .headerWrap button:hover {
   cursor: pointer;
-  background-color: hotpink;
+  background-color: #ebebeb;
 }
 
 .hamburger {
@@ -102,99 +102,6 @@
 
 /* Responsive site */
 
-@media (max-width: 425.6px) {
-  .headerWrap {
-    justify-content: center;
-    gap: 1rem;
-    height: 80px;
-  }
-  
-.headerWrap img {
-  height: 40px;
-  width: 80px;
-  margin-right: -0.75rem;
-}
-
-.headerWrap ul {
-  font-size: 1.1rem;
-  font-weight: 400;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-.headerWrap input {
-  height: 30px;
-  width: 80%;
-  font-size: 1.1rem;
-  font-weight: 100;
-  margin-right: 3rem;
-}
-
-.headerWrap input::placeholder {
-  font-size: 1rem;
-}
-  .linksWrap {
-    display: none;
-    position: absolute;
-    top: 80px;
-    left: 0;
-    width: 100%;
-    background: inherit;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
-    border-top: 3px solid black;
-  }
-
-  .showMenu {
-    display: flex;
-  }
-.headerWrap input::placeholder {
-    font-size: 0.8rem;
-  }
-  .hamburger {
-    display: block;
-  }
-
-}
-
-@media (max-width:768px){
-  .headerWrap {
-  justify-content: center;
-  gap: 10px;
-  width: 100%;
-}
-.headerWrap img {
-  height: 50px;
-  width: 40px;
-}
-.headerWrap ul {
-  gap: 10px;
-  font-size: 1rem;
-  font-weight: 400;
-}
-.headerWrap input {
-  height: 30px;
-  width: 100px;
-  padding: 0 10px;
-  border-radius: 5px;
-  font-size: 0.5rem;
-  font-weight: 100;
-}
-.headerWrap input::placeholder {
-  font-size: 0.7rem;
-  align-items: center;
-  font-weight: 500;
-}
-.headerWrap button {
-  height: 20px;
-  width: 20px;
-  font-size: 1rem;
-  font-weight: 500;
-  border-radius: 5px;
-  padding: 0 2px;
-}
-}
 @media (max-width: 1024px){
    .headerWrap {
   justify-content: center;
@@ -228,4 +135,97 @@
   border-radius: 5px;
   padding: 0 2px;
 }
+}
+@media (max-width:768px){
+  .headerWrap {
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+.headerWrap img {
+  height: 50px;
+  width: 80px;
+}
+.headerWrap ul {
+  gap: 15px;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+.headerWrap input {
+  height: 30px;
+  width: 150px;
+  padding: 0 10px;
+  border-radius: 5px;
+  font-size: 0.5rem;
+  font-weight: 100;
+}
+.headerWrap input::placeholder {
+  font-size: 0.7rem;
+  align-items: center;
+  font-weight: 500;
+}
+.headerWrap button {
+  height: 30px;
+  width: 30px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 5px;
+  padding: 0 2px;
+}
+}
+
+@media (max-width: 426px) {
+  .headerWrap {
+    justify-content: center;
+    gap: 2rem;
+    height: 80px;
+  }
+  
+.headerWrap img {
+  height: 40px;
+  width: 80px;
+  margin-right: -0.75rem;
+}
+
+.headerWrap ul {
+  font-size: 1.5rem;
+  font-weight: 400;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+.headerWrap input {
+  height: 30px;
+  width: 200px;
+  font-size: 1.1rem;
+  font-weight: 100;
+  margin-right: 3rem;
+}
+
+.headerWrap input::placeholder {
+  font-size: 1rem;
+}
+  .linksWrap {
+    display: none;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: inherit;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    border-top: 3px solid black;
+  }
+
+  .showMenu {
+    display: flex;
+  }
+.headerWrap input::placeholder {
+    font-size: 0.8rem;
+  }
+  .hamburger {
+    display: block;
+  }
+
 }

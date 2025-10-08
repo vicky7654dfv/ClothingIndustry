@@ -26,416 +26,69 @@ import Img23 from "../../assets/Grid1/23.jpg";
 import Img24 from "../../assets/Grid1/24.jpg";
 import Img25 from "../../assets/Grid1/25.jpg";
 import { ThemeContext } from "../ThemeContext/ThemeContext";
+import { SearchContext } from "../SearchContext/SearchContext";
+
 export default function Grid1() {
-        const {theme} = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext);
+  const { searchTerm } = useContext(SearchContext);
+
+  const products = [
+    { img: Img1, brand: "Basics", desc: "Plain brown coat", price: "Rs. 2640", old: "Rs. 5490", stock: "Only few left" },
+    { img: Img2, brand: "Allen Solly", desc: "Solid Orange coat suit", price: "Rs. 4550", old: "Rs. 6000", stock: "Only 5 left" },
+    { img: Img3, brand: "Flying Machine", desc: "Dotted top", price: "Rs. 640", old: "Rs. 1000", stock: "Only few left" },
+    { img: Img4, brand: "H&M", desc: "Stylish yellow hoodie", price: "Rs. 900", old: "Rs. 2490", stock: "Only 1 left" },
+    { img: Img5, brand: "Basics", desc: "Blue & white stripped top", price: "Rs. 524", old: "Rs. 990", stock: "Limited" },
+    { img: Img6, brand: "Chicco", desc: "Kids over coat", price: "Rs. 440", old: "Rs. 590", stock: "Only few left" },
+    { img: Img7, brand: "Basics", desc: "Double pocket shirt", price: "Rs. 550", old: "Rs. 1000", stock: "Only few left" },
+    { img: Img8, brand: "Rare Rabbit", desc: "Horizontal stripe T-shirt", price: "Rs. 1640", old: "Rs. 2490", stock: "Only 3 left" },
+    { img: Img9, brand: "Pepe Jeans", desc: "Kids blue jeans", price: "Rs. 500", old: "Rs. 1200", stock: "Only 1 left" },
+    { img: Img10, brand: "Puma", desc: "Yellow hoodie", price: "Rs. 800", old: "Rs. 1500", stock: "Only few left" },
+    { img: Img11, brand: "Peter England", desc: "Woolen sweat T-shirt", price: "Rs. 1240", old: "Rs. 2390", stock: "Only 7 left" },
+    { img: Img12, brand: "Adidas", desc: "Grey T-shirt", price: "Rs. 800", old: "Rs. 1400", stock: "Only 5 left" },
+    { img: Img13, brand: "Basics", desc: "Plain light green collared T-shirt", price: "Rs. 464", old: "Rs. 570", stock: "Limited stock!" },
+    { img: Img14, brand: "Peter England", desc: "Jeans shirt", price: "Rs. 345", old: "Rs. 540", stock: "Only few left" },
+    { img: Img15, brand: "Zenat", desc: "Blue jean stripped dress", price: "Rs. 2240", old: "Rs. 3490", stock: "Only 4 left" },
+    { img: Img16, brand: "Basics", desc: "Full hand jeans shirt", price: "Rs. 1140", old: "Rs. 5490", stock: "Only few left" },
+    { img: Img17, brand: "Allen Solly", desc: "Kids wear", price: "Rs. 340", old: "Rs. 590", stock: "Only few left" },
+    { img: Img18, brand: "Flying Machine", desc: "Violet T-shirt", price: "Rs. 777", old: "Rs. 1985", stock: "Only 1 left" },
+    { img: Img19, brand: "Pepe Jeans", desc: "Beige cotton pant", price: "Rs. 1250", old: "Rs. 2000", stock: "Only few left" },
+    { img: Img20, brand: "Wrogn", desc: "Blue over-sized torn jean", price: "Rs. 3640", old: "Rs. 6040", stock: "Only 2 left" },
+    { img: Img21, brand: "HighLander", desc: "Pink printed top", price: "Rs. 540", old: "Rs. 1490", stock: "Only 3 left" },
+    { img: Img22, brand: "Basics", desc: "Full hand dotted shirt", price: "Rs. 1200", old: "Rs. 2490", stock: "Only 5 left" },
+    { img: Img23, brand: "Peter England", desc: "Full hand white T-shirt", price: "Rs. 2000", old: "Rs. 5495", stock: "Only few left" },
+    { img: Img24, brand: "PlayFeel", desc: "Full hand orange T-shirt", price: "Rs. 660", old: "Rs. 2550", stock: "Only 1 left" },
+    { img: Img25, brand: "Allen Solly", desc: "Yellow top and 3/4 pant", price: "Rs. 3520", old: "Rs. 4500", stock: "Only 2 left" },
+  ];
+
+const filteredProducts = products.filter(
+  (item) =>
+    item.brand.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item.desc.toLowerCase().includes(searchTerm.toLowerCase())
+);
   return (
     <>
-    <div className={Style.gridWrap} style={{
-        background: theme === "light" ? "#ebebebff" : "#474747ff",
-        color: theme === "light" ? "#474747ff" : "#ebebebff",
-      }}>
-      <div className={Style.gridPack}>
-        <img src={Img1} alt="" />
-        <h2>Basics</h2>
-        <p>Plain brown coat</p>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <h4>Rs. 2640</h4>
-          <span
-            style={{
-              textDecoration: "line-through"
-            }}
-          >
-            Rs. 5490
-          </span>
-        </div>
-        <h5>Only few left</h5>
+      <div
+        className={Style.gridWrap}
+        style={{
+          background: theme === "light" ? "#ebebebff" : "#474747ff",
+          color: theme === "light" ? "#474747ff" : "#ebebebff",
+        }}
+      >
+        
+        {filteredProducts.map((item, index) => (
+          <div key={index} className={Style.gridPack}>
+            <img src={item.img} alt="" />
+            <h2>{item.brand}</h2>
+            <p>{item.desc}</p>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+              <h4>{item.price}</h4>
+              <span style={{ textDecoration: "line-through" }}>{item.old}</span>
+            </div>
+            <h5 style={{ color: item.stock.toLowerCase().includes("limited") ? "red" : "" }}>{item.stock}</h5>
+          </div>
+        ))}
       </div>
-      <div className={Style.gridPack}>
-        <img src={Img2} alt="" />
-        <h2>Allen Solly</h2>
-        <p>Solid Orange coat suit</p>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <h4>Rs. 4550</h4>
-          <span
-            style={{
-              textDecoration: "line-through"
-            }}
-          >
-            Rs. 6000
-          </span>
-        </div>
-        <h5>Only 5 left</h5>
-      </div>
-      <div className={Style.gridPack}>
-        <img src={Img3} alt="" />
-        <h2>Flying Machine</h2>
-        <p>Dotted top</p>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <h4>Rs. 640</h4>
-          <span
-            style={{
-              textDecoration: "line-through"
-            }}
-          >
-            Rs. 1000
-          </span>
-        </div>
-        <h5>Only few left</h5>
-      </div>
-      <div className={Style.gridPack}>
-        <img src={Img4} alt="" />
-        <h2>H&M</h2>
-        <p>Stylish yellow hoodie</p>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <h4>Rs. 900</h4>
-          <span
-            style={{
-              textDecoration: "line-through"
-            }}
-          >
-            Rs. 2490
-          </span>
-        </div>
-        <h5>Only 1 left</h5>
-      </div>
-      <div className={Style.gridPack}>
-        <img src={Img5} alt="" />
-        <h2>Basics</h2>
-        <p>Blue & white stripped top</p>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <h4>Rs. 524</h4>
-          <span
-            style={{
-              textDecoration: "line-through"
-            }}
-          >
-            Rs. 990
-          </span>
-        </div>
-        <h5 style={{color:"red"}}>Limited</h5>
-      </div>
-      <div className={Style.gridPack}>
-        <img src={Img6} alt="" />
-        <h2>Chicco</h2>
-        <p>Kids over coat</p>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <h4>Rs. 440</h4>
-          <span
-            style={{
-              textDecoration: "line-through"
-            }}
-          >
-            Rs. 590
-          </span>
-        </div>
-        <h5>Only few left</h5>
-      </div>
-      <div className={Style.gridPack}>
-        <img src={Img7} alt="" />
-        <h2>Basics</h2>
-        <p>Double pocket shirt</p>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <h4>Rs. 550</h4>
-          <span
-            style={{
-              textDecoration: "line-through"
-            }}
-          >
-            Rs. 1000
-          </span>
-        </div>
-        <h5 style={{color:"red"}}>Only few left</h5>
-      </div>
-      <div className={Style.gridPack}>
-        <img src={Img8} alt="" />
-        <h2>Rare Rabbit</h2>
-        <p>Horizontal stripe T-shirt</p>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <h4>Rs. 1640</h4>
-          <span
-            style={{
-              textDecoration: "line-through"
-            }}
-          >
-            Rs. 2490
-          </span>
-        </div>
-        <h5>Only 3 left</h5>
-      </div>
-      <div className={Style.gridPack}>
-        <img src={Img9} alt="" />
-        <h2>Pepe Jeans</h2>
-        <p>Kids blue jeans</p>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <h4>Rs. 500</h4>
-          <span
-            style={{
-              textDecoration: "line-through"
-            }}
-          >
-            Rs. 1200
-          </span>
-        </div>
-        <h5 style={{color:"red"}}>Only 1 left</h5>
-      </div>
-      <div className={Style.gridPack}>
-        <img src={Img10} alt="" />
-        <h2>Puma</h2>
-        <p>Yellow hoodie</p>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <h4>Rs. 800</h4>
-          <span
-            style={{
-              textDecoration: "line-through"
-            }}
-          >
-            Rs. 1500
-          </span>
-        </div>
-        <h5>Only few left</h5>
-      </div>
-      <div className={Style.gridPack}>
-        <img src={Img11} alt="" />
-        <h2>Peter England</h2>
-        <p>Woolen sweat T-shirt</p>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <h4>Rs. 1240</h4>
-          <span
-            style={{
-              textDecoration: "line-through"
-            }}
-          >
-            Rs. 2390
-          </span>
-        </div>
-        <h5>Only 7 left</h5>
-      </div>
-      <div className={Style.gridPack}>
-        <img src={Img12} alt="" />
-        <h2>Adidas</h2>
-        <p>Grey T-shirt</p>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <h4>Rs. 800</h4>
-          <span
-            style={{
-              textDecoration: "line-through"
-            }}
-          >
-            Rs. 1400
-          </span>
-        </div>
-        <h5>Only 5 left</h5>
-      </div>
-      <div className={Style.gridPack}>
-        <img src={Img13} alt="" />
-        <h2>Basics</h2>
-        <p>Plain light green collared T-shirt</p>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <h4>Rs. 464</h4>
-          <span
-            style={{
-              textDecoration: "line-through"
-            }}
-          >
-            Rs. 570
-          </span>
-        </div>
-        <h5 style={{color:"red"}}>Limited stock!</h5>
-      </div>
-      <div className={Style.gridPack}>
-        <img src={Img14} alt="" />
-        <h2>Peter England</h2>
-        <p>Jeans shirt</p>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <h4>Rs. 345</h4>
-          <span
-            style={{
-              textDecoration: "line-through"
-            }}
-          >
-            Rs. 540
-          </span>
-        </div>
-        <h5>Only few left</h5>
-      </div>
-      <div className={Style.gridPack}>
-        <img src={Img15} alt="" />
-        <h2>Zenat</h2>
-        <p>Blue jean stripped dress</p>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <h4>Rs. 2240</h4>
-          <span
-            style={{
-              textDecoration: "line-through"
-            }}
-          >
-            Rs. 3490
-          </span>
-        </div>
-        <h5>Only 4 left</h5>
-      </div>
-      <div className={Style.gridPack}>
-        <img src={Img16} alt="" />
-        <h2>Basics</h2>
-        <p>Full hand jeans shirt</p>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <h4>Rs. 1140</h4>
-          <span
-            style={{
-              textDecoration: "line-through"
-            }}
-          >
-            Rs. 5490
-          </span>
-        </div>
-        <h5 style={{color:"red"}}>Only few left</h5>
-      </div>
-      <div className={Style.gridPack}>
-        <img src={Img17} alt="" />
-        <h2>Allen Solly</h2>
-        <p>Kids wear</p>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <h4>Rs. 340</h4>
-          <span
-            style={{
-              textDecoration: "line-through"
-            }}
-          >
-            Rs. 590
-          </span>
-        </div>
-        <h5>Only few left</h5>
-      </div>
-      <div className={Style.gridPack}>
-        <img src={Img18} alt="" />
-        <h2>Flying Machine</h2>
-        <p>Violet T-shirt</p>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <h4>Rs. 777</h4>
-          <span
-            style={{
-              textDecoration: "line-through"
-            }}
-          >
-            Rs. 1985
-          </span>
-        </div>
-        <h5>Only 1 left</h5>
-      </div>
-      <div className={Style.gridPack}>
-        <img src={Img19} alt="" />
-        <h2>Pepe Jeans</h2>
-        <p>Beige cotton pant</p>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <h4>Rs. 1250</h4>
-          <span
-            style={{
-              textDecoration: "line-through"
-            }}
-          >
-            Rs. 2000
-          </span>
-        </div>
-        <h5 style={{color:"red"}}>Only few left</h5>
-      </div>
-      <div className={Style.gridPack}>
-        <img src={Img20} alt="" />
-        <h2>Wrogn</h2>
-        <p>Blue over-sized torn jean</p>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <h4>Rs. 3640</h4>
-          <span
-            style={{
-              textDecoration: "line-through"
-            }}
-          >
-            Rs. 6040
-          </span>
-        </div>
-        <h5>Only 2 left</h5>
-      </div>
-      <div className={Style.gridPack}>
-        <img src={Img21} alt="" />
-        <h2>HighLander</h2>
-        <p>Pink printed top</p>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <h4>Rs. 540</h4>
-          <span
-            style={{
-              textDecoration: "line-through"
-            }}
-          >
-            Rs. 1490
-          </span>
-        </div>
-        <h5>Only 3 left</h5>
-      </div>
-      <div className={Style.gridPack}>
-        <img src={Img22} alt="" />
-        <h2>Basics</h2>
-        <p>Full hand dotted shirt</p>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <h4>Rs. 1200</h4>
-          <span
-            style={{
-              textDecoration: "line-through"
-            }}
-          >
-            Rs. 2490
-          </span>
-        </div>
-        <h5>Only 5 left</h5>
-      </div>
-      <div className={Style.gridPack}>
-        <img src={Img23} alt="" />
-        <h2>Peter England</h2>
-        <p>Full hand white T-shirt</p>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <h4>Rs. 2000</h4>
-          <span
-            style={{
-              textDecoration: "line-through"
-            }}
-          >
-            Rs. 5495
-          </span>
-        </div>
-        <h5>Only few left</h5>
-      </div>
-      <div className={Style.gridPack}>
-        <img src={Img24} alt="" />
-        <h2>PlayFeel</h2>
-        <p>Full hand orange T-shirt</p>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <h4>Rs. 660</h4>
-          <span
-            style={{
-              textDecoration: "line-through"
-            }}
-          >
-            Rs. 2550
-          </span>
-        </div>
-        <h5 style={{color:"red"}}>Only 1 left</h5>
-      </div>
-      <div className={Style.gridPack}>
-        <img src={Img25} alt="" />
-        <h2>Allen Solly</h2>
-        <p>Yellow top and 3/4 pant</p>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <h4>Rs. 3520</h4>
-          <span
-            style={{
-              textDecoration: "line-through"
-            }}
-          >
-            Rs. 4500
-          </span>
-        </div>
-        <h5>Only 2 left</h5>
-      </div>
-    </div>
-    <hr />
+      <hr />
     </>
   );
 }

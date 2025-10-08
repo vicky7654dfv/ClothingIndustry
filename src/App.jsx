@@ -3,12 +3,14 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import ThemeProvider from "./components/ThemeContext/ThemeContext";
 import Home from "./pages/Home/Home";
+import { SearchProvider } from "./components/SearchContext/SearchContext";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <ThemeProvider>
+          <SearchProvider>
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
@@ -18,6 +20,7 @@ function App() {
             <Route path="/SignUp" element={<SignUp />} />
             <Route path="/Login" element={<Login />} /> */}
           </Routes>
+          </SearchProvider>
           <Footer />
         </ThemeProvider>
       </BrowserRouter>

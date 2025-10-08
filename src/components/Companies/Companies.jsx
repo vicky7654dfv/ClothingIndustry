@@ -74,6 +74,9 @@ export default function Companies() {
           </div>
         </div>
       </div>
+      <div className={Style.clientsText2}>
+        <h1>Collections</h1>
+      </div>
     </div>
   )
 }

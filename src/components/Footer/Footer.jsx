@@ -15,12 +15,12 @@ export default function Footer() {
       <div className={Style.box}>
         <img src={Img1} alt="" />
         <p>To redefine modern fashion by blending creativity, comfort, and sustainability — making Stackly a global symbol of confidence and style.</p>
-        <button>More about company<i class="fa-solid fa-angles-right"></i></button>
+        <button>More about company<i className="fa-solid fa-angles-right"></i></button>
       </div>
       <div className={Style.box} >
         <h4>Quick links</h4>
         <ul>
-          <li><Link  style={{
+          <li><Link style={{
         background: theme === "light" ? "#ebebebff" : "#474747ff",
         color: theme === "light" ? "#474747ff" : "#ebebebff",
       }}>About Us</Link></li>
@@ -48,10 +48,10 @@ export default function Footer() {
         background: theme === "light" ? "#ebebebff" : "#474747ff",
         color: theme === "light" ? "#474747ff" : "#ebebebff",
       }}>
-          <li><i class="fa-solid fa-location-dot"></i> Chinna tirupathi, Salem</li>
-          <li><i class="fa-solid fa-phone"></i> +91 9876543210</li>
-          <li><i class="fa-solid fa-envelope"></i> info@thestackly.com</li>
-          <li><i class="fa-solid fa-calendar-days"></i> Mon - Fri: 09:30 AM - 06:30 PM</li>
+          <li><i className="fa-solid fa-location-dot"></i> Chinna tirupathi, Salem</li>
+          <li><i className="fa-solid fa-phone"></i> +91 9876543210</li>
+          <li><i className="fa-solid fa-envelope"></i> info@thestackly.com</li>
+          <li><i className="fa-solid fa-calendar-days"></i> Mon - Fri: 09:30 AM - 06:30 PM</li>
         </ul>
       </div>
       <div className={Style.box}>
@@ -61,19 +61,19 @@ export default function Footer() {
           <Link style={{
         background: theme === "light" ? "#ebebebff" : "#474747ff",
         color: theme === "light" ? "#474747ff" : "#ebebebff",
-      }}><i class="fa-brands fa-linkedin-in"></i></Link>
+      }}><i className="fa-brands fa-linkedin-in"></i></Link>
           <Link style={{
         background: theme === "light" ? "#ebebebff" : "#474747ff",
         color: theme === "light" ? "#474747ff" : "#ebebebff",
-      }}><i class="fa-brands fa-facebook-f"></i></Link>
+      }}><i className="fa-brands fa-facebook-f"></i></Link>
           <Link style={{
         background: theme === "light" ? "#ebebebff" : "#474747ff",
         color: theme === "light" ? "#474747ff" : "#ebebebff",
-      }}><i class="fa-brands fa-x-twitter"></i></Link>
+      }}><i className="fa-brands fa-x-twitter"></i></Link>
           <Link style={{
         background: theme === "light" ? "#ebebebff" : "#474747ff",
         color: theme === "light" ? "#474747ff" : "#ebebebff",
-      }}><i class="fa-brands fa-instagram"></i></Link>
+      }}><i className="fa-brands fa-instagram"></i></Link>
         </div>
       </div>
     </div>

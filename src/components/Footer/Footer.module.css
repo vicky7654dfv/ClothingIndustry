@@ -12,6 +12,11 @@
     font-size: 1.2rem;
     padding: 0.5rem 1rem;
     background-color: indianred;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.box button:hover{
+    background-color: burlywood;
 }
 .box p{
     max-width: 350px;
@@ -27,14 +32,32 @@
 .box li{
     margin-bottom: 10px
 }
-.box a{
-    color: #474747ff;
-    text-decoration: none;
-    transition: all 0.3s ease;
+.box a {
+  position: relative;
+  color: #474747ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
-.box a:hover{
-    color: indianred;
+
+.box a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: indianred;
+  transition: width 0.3s ease;
 }
+
+.box a:hover {
+  color: indianred;
+}
+
+.box a:hover::after {
+  width: 100%;
+}
+
 .media{
     display: flex;
     justify-content: flex-start;
@@ -46,6 +69,9 @@
     text-align: center;
     padding-bottom: 10px;
 }
+.bottomFooter p{
+    font-size: 1.3rem;
+}
 .bottomFooter hr {
   border: none;
   border-top: 3px solid #ccc;
@@ -55,4 +81,273 @@ hr {
   border: none;
   border: 30px solid #ccc;
   margin: 10px 0;
+}
+
+/* Responsive site */
+
+@media (max-width: 1024px){
+.footerWrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 1rem;
+    padding: 2rem;
+}
+.box img{
+    height: 30px;
+}
+.box button{
+    font-size: 0.75rem;
+    padding: 0.3rem 0.7rem;
+    background-color: indianred;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.box button:hover{
+    background-color: burlywood;
+}
+.box p{
+    max-width: 200px;
+    margin: 1rem 0;
+}
+.box h4{
+    margin-bottom: 10px;
+}
+.box ul{
+    color: #474747ff;
+    list-style: none;
+}
+.box li{
+    margin-bottom: 10px
+}
+.box a {
+  position: relative;
+  color: #474747ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.box a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: indianred;
+  transition: width 0.3s ease;
+}
+
+.box a:hover {
+  color: indianred;
+}
+
+.box a:hover::after {
+  width: 100%;
+}
+
+.media{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+.bottomFooter{
+    margin-top: -10px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.bottomFooter p{
+    font-size: 1rem;
+}
+.bottomFooter hr {
+  border: none;
+  border-top: 3px solid #ccc;
+  margin: 10px 0;
+}
+hr {
+  border: none;
+  border: 30px solid #ccc;
+  margin: 10px 0;
+}
+}
+
+@media (max-width: 768px){
+.footerWrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 0.7rem;
+    padding: 2rem;
+}
+.box img{
+    height: 20px;
+}
+.box button{
+    font-size: 0.5rem;
+    padding: 0.3rem 0.7rem;
+    background-color: indianred;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.box button:hover{
+    background-color: burlywood;
+}
+.box p{
+    max-width: 170px;
+    margin: 1rem 0;
+}
+.box h4{
+    margin-bottom: 10px;
+}
+.box ul{
+    color: #474747ff;
+    list-style: none;
+}
+.box li{
+    margin-bottom: 10px
+}
+.box a {
+  position: relative;
+  color: #474747ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.box a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: indianred;
+  transition: width 0.3s ease;
+}
+
+.box a:hover {
+  color: indianred;
+}
+
+.box a:hover::after {
+  width: 100%;
+}
+
+.media{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+}
+.bottomFooter{
+    margin-top: -10px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.bottomFooter p{
+    font-size: 0.7rem;
+}
+.bottomFooter hr {
+  border: none;
+  border-top: 3px solid #ccc;
+  margin: 10px 0;
+}
+hr {
+  border: none;
+  border: 30px solid #ccc;
+  margin: 10px 0;
+}
+}
+
+@media (max-width: 426px){
+.footerWrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    align-items: flex-start;
+    font-size: 0.7rem;
+    padding: 2rem;
+}
+.box img{
+    height: 60px;
+}
+.box button{
+    font-size: 0.7rem;
+    padding: 0.3rem 0.7rem;
+    background-color: indianred;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.box button:hover{
+    background-color: burlywood;
+}
+.box p{
+    font-size: 1.3rem;
+    max-width: 370px;
+    margin: 0.7rem 0;
+}
+.box h4{
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+.box ul{
+    font-size: 1.3rem;
+    color: #474747ff;
+    list-style: none;
+}
+.box li{
+    margin-bottom: 10px
+}
+.box a {
+  position: relative;
+  color: #474747ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.box a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: indianred;
+  transition: width 0.3s ease;
+}
+
+.box a:hover {
+  color: indianred;
+}
+
+.box a:hover::after {
+  width: 100%;
+}
+
+.media{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.7rem;
+}
+.bottomFooter{
+    margin-top: -10px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.bottomFooter p{
+    font-size: 0.6rem;
+    font-weight: bold;
+}
+.bottomFooter hr {
+  border: none;
+  border-top: 3px solid #ccc;
+  margin: 10px 0;
+}
+hr {
+  border: none;
+  border: 30px solid #ccc;
+  margin: 10px 0;
+}
 }

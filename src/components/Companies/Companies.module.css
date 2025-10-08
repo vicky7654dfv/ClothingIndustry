@@ -23,6 +23,10 @@
 .client img {
   height: 60px;
 }
+.clientsText2 h1{
+  text-align: center;
+  font-weight: bold;
+}
 @keyframes scroll-left {
   0% {
     transform: translateX(0%);
@@ -37,11 +41,35 @@
 /* Responsive site */
 
 @media (max-width: 426px){
-.client img{
-  height: 50px;
+.clientListWrapper {
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
 }
-.clientList{
+.clientsText {
+  margin: 2rem 0;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.clientsText h1{
+  font-size: 1.5rem;
+  padding-top: 1rem;
+}
+.clientList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
   padding-bottom: 1rem;
-  
+  animation: scroll-left 20s linear infinite;
+}
+.client img {
+  height: 30px;
+}
+.clientsText2 h1{
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 }

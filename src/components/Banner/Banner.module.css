@@ -92,22 +92,22 @@
         height: 420px;
     }
     .textWrap{
-    top: 30%;
+    top: 40%;
     left: 8%;
 }
 .textWrap h3{
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     margin-bottom: 0.5rem;
 }
 .textWrap p{
-    font-size: 1.3rem;
-    max-width: 350px;
+    font-size: 0.8rem;
+    max-width: 280px;
     margin-bottom: 0.5rem;
 }
 .textWrap button{
     font-size: 1rem;
     font-weight: bold;
-    padding: 1rem 1rem;
-    border-radius: 1rem;
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.7rem;
 }
 }

@@ -19,18 +19,18 @@ export default function Total() {
         </div>
         <div className={Style.box}>
             <img src={Img2} alt="" />
-            <h2>2M+</h2>
-            <p>Happy Customers</p>
+            <h2>54M+</h2>
+            <p>Orders Delivered</p>
         </div>
         <div className={Style.box}>
             <img src={Img3} alt="" />
-            <h2>2M+</h2>
-            <p>Happy Customers</p>
+            <h2>1564+</h2>
+            <p>Brands Collaborated With</p>
         </div>
         <div className={Style.box}>
             <img src={Img4} alt="" />
-            <h2>2M+</h2>
-            <p>Happy Customers</p>
+            <h2>10+</h2>
+            <p>Years In Industry</p>
         </div>
     </div>
   )

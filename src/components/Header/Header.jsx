@@ -3,10 +3,12 @@ import Style from "../Header/Header.module.css";
 import Img from "../../assets/Header/logo1.png";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../ThemeContext/ThemeContext";
+import { SearchContext } from "../SearchContext/SearchContext";
 
 export default function Header() {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const [menuOpen, setMenuOpen] = useState(false);
+const { searchTerm, setSearchTerm } = useContext(SearchContext);
 
   return (
     <div
@@ -23,7 +25,8 @@ export default function Header() {
         ☰
       </div>
       <div className={Style.inputDiv}>
-        <input type="text" placeholder="Find your perfect outfit ✨" />
+        <input type="text" placeholder="Find your perfect outfit ✨" value={searchTerm}
+  onChange={(e) => setSearchTerm(e.target.value)}/>
       </div>
       <div
         className={`${Style.linksWrap} ${menuOpen ? Style.showMenu : ""}`}
@@ -63,6 +66,14 @@ export default function Header() {
             </Link>
           </li>
           <li>
+            <Link
+              to="/"
+              style={{ color: theme === "light" ? "#474747" : "#ebebeb" }}
+            >
+              Contact
+            </Link>
+          </li>
+          <li>
             <button className={Style.colorButton} onClick={toggleTheme}>
               {theme === "light" ? "🌙" : "☀️"}
             </button>
@@ -73,14 +84,6 @@ export default function Header() {
               style={{ color: theme === "light" ? "#474747" : "#ebebeb" }}
             >
               Sign Up
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/"
-              style={{ color: theme === "light" ? "#474747" : "#ebebeb" }}
-            >
-              Login
             </Link>
           </li>
           
