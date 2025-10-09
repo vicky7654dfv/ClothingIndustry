@@ -103,9 +103,9 @@
   gap: 50px;
 }
 .imgWrap img {
-  width: 100%;
-  height: 250px;
-  transform: translateX(5rem);
+  width: 270px;
+  height: 170px;
+  transform: translateX(3rem);
 }
 .formFillWrap {
   display: flex;
@@ -117,23 +117,23 @@
 }
 .formFillWrap h2 {
   margin-bottom: 20px;
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: bold;
   color: rgb(59, 59, 59);
 }
 
 .commonClass {
-  width: 600px;
+  width: 450px;
   height: 60px;
   margin-bottom: 10px;
   padding: 1.5rem 1rem;
   border-radius: 4px;
   background-color: beige;
   text-align: left;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .commonClass::placeholder {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: gray;
 }
 .commonClass:hover {
@@ -141,13 +141,13 @@
   border: 1px solid gray;
 }
 .submitClass {
-  width: 600px;
-  height: 60px;
+  width: 450px;
+  height: 50px;
   margin-top: 20px;
   border-radius: 4px;
   background-color: rgb(59, 59, 59);
   color: white;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   cursor: pointer;
   align-items: center;
@@ -161,12 +161,203 @@
 }
 .loginBtn {
   display: inline-block;
-  width: 200px;
-  height: 60px;
+  width: 125px;
+  height: 55px;
   line-height: 60px;
   text-align: center;
   background-color: indianred;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.loginBtn:hover {
+  background-color: #b84a4a;
+  color: beige;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(205, 92, 92, 0.5);
+}
+}
+
+@media (max-width:768px){
+    .loginWrap {
+  margin-top: 80px;
+  width: 100%;
+  height: 500px;
+  background-image: url("../../assets/Login/bg.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.imgWrap img {
+  width: 250px;
+  height: 170px;
+  transform: translateX(3rem);
+}
+.formFillWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+.formFillWrap h2 {
+  margin-bottom: 20px;
   font-size: 2rem;
+  font-weight: bold;
+  color: rgb(59, 59, 59);
+}
+
+.commonClass {
+  width: 350px;
+  height: 50px;
+  margin-bottom: 10px;
+  padding: 1.2rem 0.8rem;
+  border-radius: 4px;
+  background-color: beige;
+  text-align: left;
+  font-size: 1.5rem;
+}
+.commonClass::placeholder {
+  font-size: 1.5rem;
+  color: gray;
+}
+.commonClass:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border: 1px solid gray;
+}
+.submitClass {
+  width: 350px;
+  height: 50px;
+  margin-top: 10px;
+  border-radius: 4px;
+  background-color: rgb(59, 59, 59);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  align-items: center;
+}
+.submitClass:hover {
+  background-color: rgb(30, 30, 30);
+}
+.loginBtn a {
+  text-decoration: none;
+  color: white;
+}
+.loginBtn {
+  display: inline-block;
+  width: 100px;
+  height: 40px;
+  line-height: 60px;
+  text-align: center;
+  background-color: indianred;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.loginBtn:hover {
+  background-color: #b84a4a;
+  color: beige;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(205, 92, 92, 0.5);
+}
+}
+
+@media (max-width:426px){
+    .loginWrap {
+  margin-top: 80px;
+  width: 100%;
+  height: 500px;
+  background-image: url("../../assets/Login/bg.jpg");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.imgWrap img {
+  width: 200px;
+  height: 100px;
+  transform: translateX(0);
+}
+.formFillWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+.formFillWrap h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgb(59, 59, 59);
+}
+
+.commonClass {
+  width: 300px;
+  height: 50px;
+  margin-bottom: 10px;
+  padding: 1rem 0.6rem;
+  border-radius: 4px;
+  background-color: beige;
+  text-align: left;
+  font-size: 1.5rem;
+}
+.commonClass::placeholder {
+  font-size: 1.5rem;
+  color: gray;
+}
+.commonClass:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border: 1px solid gray;
+}
+.submitClass {
+  width: 300px;
+  height: 50px;
+  margin-top: 10px;
+  border-radius: 4px;
+  background-color: rgb(59, 59, 59);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  align-items: center;
+}
+.submitClass:hover {
+  background-color: rgb(30, 30, 30);
+}
+.loginBtn a {
+  text-decoration: none;
+  color: white;
+}
+.loginBtn {
+  display: inline-block;
+  width: 100px;
+  height: 35px;
+  line-height: 60px;
+  text-align: center;
+  background-color: indianred;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: bold;
   border-radius: 4px;
   margin-top: 10px;
