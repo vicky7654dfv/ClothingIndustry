@@ -87,6 +87,7 @@
   border-radius: 4px;
   margin-top: 10px;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .loginBtn:hover {
@@ -312,7 +313,7 @@
     gap: 10px;
   }
   .imgWrap img {
-    width: 50px;
+    width: 150px;
     height: 75px;
     transform: translateX(0);
   }

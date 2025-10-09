@@ -1,13 +1,14 @@
 import React, { useContext, useState } from "react";
 import Style from "./SignUp.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import ImgSide from "../../assets/Header/logo1.png"
+import ImgSide from "../../assets/Header/logo1.png";
 import { ThemeContext } from "../ThemeContext/ThemeContext";
-import Error from './../../pages/Error/Error';
+import Error from "./../../pages/Error/Error";
+import Login from "./../Login/Login";
 export default function SignUp() {
   const { theme } = useContext(ThemeContext);
 
-    const navigate=useNavigate();
+  const navigate = useNavigate();
 
   const [form, setForm] = useState({
     name: "",
@@ -58,43 +59,50 @@ export default function SignUp() {
       return;
     }
     alert(`Name: ${form.name}\n Email: ${form.email}\n Phone: ${form.phone}`);
-    navigate("/Error")
+    navigate("/Error");
   };
 
   return (
-    <div className={Style.signUpWrap} style={{
-          background: theme === "light" ? "#ebebebff" : "#474747ff",
-          color: theme === "light" ? "#474747ff" : "#ebebebff",
-        }}>
+    <div
+      className={Style.signUpWrap}
+      style={{
+        background: theme === "light" ? "#ebebebff" : "#474747ff",
+        color: theme === "light" ? "#474747ff" : "#ebebebff",
+      }}
+    >
       <div className={Style.imgWrap}>
         <img src={ImgSide} alt="sidePic" />
       </div>
       <form className={Style.signUpForm} onSubmit={handleSubmit}>
-        <h2 style={{
-          background: theme === "light" ? "#ebebebff" : "#474747ff",
-          color: theme === "light" ? "#474747ff" : "#ebebebff",
-        }}>SignUp</h2>
+        <h2
+          style={{
+            background: theme === "light" ? "#ebebebff" : "#474747ff",
+            color: theme === "light" ? "#474747ff" : "#ebebebff",
+          }}
+        >
+          SignUp
+        </h2>
         <div className={Style.firstRow}>
-<input
-          type="text"
-          className={`${Style.nameClass} ${Style.commonClass}`}
-          name="name"
-          placeholder="Name"
-          value={form.name}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="email"
-          className={`${Style.emailClass} ${Style.commonClass}`}
-          name="email"
-          placeholder="Email"
-          value={form.email}
-          onChange={handleChange}
-          required
-        />
+          <input
+            type="text"
+            className={`${Style.nameClass} ${Style.commonClass}`}
+            name="name"
+            placeholder="Name"
+            value={form.name}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="email"
+            className={`${Style.emailClass} ${Style.commonClass}`}
+            name="email"
+            placeholder="Email"
+            value={form.email}
+            onChange={handleChange}
+            required
+          />
         </div>
-        
+
         <input
           type="tel"
           className={`${Style.phoneClass} ${Style.commonClass}`}
@@ -121,32 +129,37 @@ export default function SignUp() {
           name="confirmPassword"
           placeholder="Confirm Password"
           value={form.confirmPassword}
-          onChange={
-            handleChange
-          }
+          onChange={handleChange}
           required
         />
         <button
-  type="submit"
-  className={Style.submitClass}
-  style={{
-    background: theme === "light" ? "#474747ff" : "#ebebebff",
-    color: theme === "light" ? "#ebebebff" : "#474747ff",
-    transition: "all 0.3s ease",
-  }}
-  onMouseEnter={(e) => {
-    e.target.style.backgroundColor = "indianred"
-    e.target.style.color = "white"
-  }}
-  onMouseLeave={(e) => {
-    e.target.style.backgroundColor = theme === "light" ? "#474747ff" : "#ebebebff"
-    e.target.style.color = theme === "light" ? "#ebebebff" : "#474747ff"
-  }}
->
-  Submit
-</button>
-<button type="Error" className={Style.loginBtn}><Link to={"/Login"}>Login</Link></button>
-
+          type="submit"
+          className={Style.submitClass}
+          style={{
+            background: theme === "light" ? "#474747ff" : "#ebebebff",
+            color: theme === "light" ? "#ebebebff" : "#474747ff",
+            transition: "all 0.3s ease",
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.backgroundColor = "indianred";
+            e.target.style.color = "white";
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.backgroundColor =
+              theme === "light" ? "#474747ff" : "#ebebebff";
+            e.target.style.color =
+              theme === "light" ? "#ebebebff" : "#474747ff";
+          }}
+        >
+          Submit
+        </button>
+        <button
+          type="button"
+          className={Style.loginBtn}
+          onClick={() => navigate("/Login")}
+        >
+          Login
+        </button>
       </form>
     </div>
   );

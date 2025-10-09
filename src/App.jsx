@@ -7,11 +7,11 @@ import { SearchProvider } from "./components/SearchContext/SearchContext";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import Services from "./pages/Services/Services";
 import Contact from "./pages/Contact/Contact";
-import SignUp from "./pages/SignUpPage/SignUpPage";
-import Login from "./pages/Login/Login";
 import Checkout from "./pages/Checkout/Checkout";
 import { CartProvider } from "./components/CartContext/CartContext";
 import Error from "./pages/Error/Error";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import SignUpPage from "./pages/SignUpPage/SignUpPage";
 
 function App() {
   return (
@@ -27,8 +27,8 @@ function App() {
             <Route path="/Services" element={<Services />} />
             <Route path="/Contact" element={<Contact />} />
             <Route path="/Checkout" element={<Checkout />} />
-            <Route path="/SignUp" element={<SignUp />} />
-            <Route path="/Login" element={<Login />} />
+            <Route path="/SignUp" element={<SignUpPage />} />
+            <Route path="/Login" element={<LoginPage />} />
             <Route path="/Error" element={<Error />} />
           </Routes>
           </SearchProvider>
