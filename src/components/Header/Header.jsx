@@ -43,7 +43,7 @@ const { searchTerm, setSearchTerm } = useContext(SearchContext);
           </li>
           <li>
             <Link
-              to="/"
+              to="/AboutUs"
               style={{ color: theme === "light" ? "#474747" : "#ebebeb" }}
             >
               About Us
@@ -51,7 +51,7 @@ const { searchTerm, setSearchTerm } = useContext(SearchContext);
           </li>
           <li>
             <Link
-              to="/"
+              to="/Services"
               style={{ color: theme === "light" ? "#474747" : "#ebebeb" }}
             >
               Services
@@ -59,7 +59,7 @@ const { searchTerm, setSearchTerm } = useContext(SearchContext);
           </li>
           <li>
             <Link
-              to="/"
+              to="/FAQ"
               style={{ color: theme === "light" ? "#474747" : "#ebebeb" }}
             >
               FAQ
@@ -67,10 +67,18 @@ const { searchTerm, setSearchTerm } = useContext(SearchContext);
           </li>
           <li>
             <Link
-              to="/"
+              to="/Contact"
               style={{ color: theme === "light" ? "#474747" : "#ebebeb" }}
             >
               Contact
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/Checkout"
+              style={{ color: theme === "light" ? "#474747" : "#ebebeb" }}
+            >
+              Checkout
             </Link>
           </li>
           <li>
@@ -80,7 +88,7 @@ const { searchTerm, setSearchTerm } = useContext(SearchContext);
           </li>
           <li>
             <Link
-              to="/"
+              to="/SignUp"
               style={{ color: theme === "light" ? "#474747" : "#ebebeb" }}
             >
               Sign Up
