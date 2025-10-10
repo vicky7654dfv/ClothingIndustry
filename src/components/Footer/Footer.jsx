@@ -3,7 +3,6 @@ import Style from "./Footer.module.css";
 import Img1 from "../../assets/Header/logo1.png";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../ThemeContext/ThemeContext";
-import AboutUs from "./../../pages/AboutUs/AboutUs";
 export default function Footer() {
   const { theme } = useContext(ThemeContext);
   return (

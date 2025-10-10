@@ -12,6 +12,8 @@ import { CartProvider } from "./components/CartContext/CartContext";
 import Error from "./pages/Error/Error";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
+import Home2 from "./pages/Home2/Home2";
+import FAQ from "./pages/FAQ/FAQ";
 
 function App() {
   return (
@@ -25,11 +27,13 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/Services" element={<Services />} />
+            <Route path="/FAQ" element={<FAQ />}/>
             <Route path="/Contact" element={<Contact />} />
             <Route path="/Checkout" element={<Checkout />} />
             <Route path="/SignUp" element={<SignUpPage />} />
             <Route path="/Login" element={<LoginPage />} />
             <Route path="/Error" element={<Error />} />
+            <Route path="/HomePage2" element={<Home2 />} />
           </Routes>
           </SearchProvider>
           </CartProvider>

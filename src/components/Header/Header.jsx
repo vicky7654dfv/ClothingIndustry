@@ -1,15 +1,16 @@
 import React, { useContext, useState } from "react";
 import Style from "../Header/Header.module.css";
 import Img from "../../assets/Header/logo1.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ThemeContext } from "../ThemeContext/ThemeContext";
 import { SearchContext } from "../SearchContext/SearchContext";
 
 export default function Header() {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const [menuOpen, setMenuOpen] = useState(false);
-const { searchTerm, setSearchTerm } = useContext(SearchContext);
-
+  const { searchTerm, setSearchTerm } = useContext(SearchContext);
+  const location = useLocation();
+  const isHome2 = location.pathname === "/HomePage2";
   return (
     <div
       className={Style.headerWrap}
@@ -25,22 +26,31 @@ const { searchTerm, setSearchTerm } = useContext(SearchContext);
         ☰
       </div>
       <div className={Style.inputDiv}>
-        <input type="text" placeholder="Find your perfect outfit ✨" value={searchTerm}
-  onChange={(e) => setSearchTerm(e.target.value)}/>
+        <input
+          type="text"
+          placeholder="Find your perfect outfit ✨"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
       </div>
-      <div
-        className={`${Style.linksWrap} ${menuOpen ? Style.showMenu : ""}`}
-        onClick={() => setMenuOpen(false)}
-      >
-        <ul>
-          <li>
+      <div className={`${Style.linksWrap} ${menuOpen ? Style.showMenu : ""}`}>
+        <ul onClick={() => setMenuOpen(false)}>
+          <li className={Style.dropdown}>
             <Link
-              to="/"
+              to={isHome2 ? "/" : "/HomePage2"}
               style={{ color: theme === "light" ? "#474747" : "#ebebeb" }}
             >
-              Home Page
+              {isHome2 ? "Home Page 2" : "Home Page"}
             </Link>
+            <ul className={Style.dropdownMenu}>
+              <li>
+                <Link to={isHome2 ? "/" : "/HomePage2"}>
+                  {isHome2 ? "Home Page" : "Home Page 2"}
+                </Link>
+              </li>
+            </ul>
           </li>
+
           <li>
             <Link
               to="/AboutUs"
@@ -94,7 +104,6 @@ const { searchTerm, setSearchTerm } = useContext(SearchContext);
               Sign Up
             </Link>
           </li>
-          
         </ul>
       </div>
     </div>

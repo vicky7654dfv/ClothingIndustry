@@ -1,0 +1,173 @@
+.contactWrap {
+  padding: 4rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 80px;
+}
+
+.topSection {
+  text-align: center;
+  max-width: 800px;
+}
+
+.topSection h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: indianred;
+}
+
+.topSection p {
+  font-size: 1.3rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.mainContent {
+  display: flex;
+  justify-content: space-between;
+  gap: 5rem;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.infoBox {
+  flex: 1;
+  min-width: 300px;
+}
+
+.infoBox h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.infoBox p {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.socialLinks a {
+  color: indianred;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.socialLinks a:hover {
+  color: burlywood;
+}
+
+.formBox {
+  flex: 1;
+  min-width: 300px;
+}
+
+.formBox h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.formBox form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formBox input,
+.formBox textarea {
+  padding: 0.8rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.formBox input:focus,
+.formBox textarea:focus {
+  border-color: indianred;
+}
+
+.formBox button {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  background-color: indianred;
+  color: #fff;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.formBox button:hover {
+  background-color: burlywood;
+  color: #222;
+}
+
+.mapWrap {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+}
+
+.mapWrap h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+  .topSection h2 {
+    font-size: 2rem;
+  }
+
+  .mainContent {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .infoBox,
+  .formBox {
+    width: 100%;
+  }
+
+  .formBox button {
+    font-size: 1rem;
+  }
+
+  .mapWrap h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 426px) {
+  .contactWrap {
+    padding: 2rem 1rem;
+  }
+
+  .topSection h2 {
+    font-size: 1.8rem;
+  }
+
+  .topSection p {
+    font-size: 1rem;
+  }
+
+  .infoBox p {
+    font-size: 1rem;
+  }
+
+  .formBox button {
+    font-size: 0.9rem;
+  }
+}
