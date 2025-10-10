@@ -1,0 +1,607 @@
+/* Section 1: Hero Services Section */
+.servicesContainer {
+  min-height: 100vh;
+  transition: all 0.3s ease;
+  margin-top: 80px;
+}
+
+.heroSection {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.heroContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.heroText h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroDescription {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.ctaButton {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
+}
+
+.heroImage {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.heroImage img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.heroImage:hover img {
+  transform: scale(1.05);
+}
+
+/* Section 2: Services Showcase */
+.servicesShowcase {
+  padding: 4rem 2rem;
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.servicesContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.servicesContent h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.servicesSubtitle {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  margin-bottom: 3rem;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.serviceCard {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  text-align: center;
+  border: 2px solid transparent;
+}
+
+.serviceCard:hover,
+.serviceCard.activeService {
+  transform: translateY(-10px);
+  border-color: #ff6b6b;
+  box-shadow: 0 15px 40px rgba(255, 107, 107, 0.2);
+}
+
+.serviceIcon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.serviceCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.serviceCard p {
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.featuresList li {
+  padding: 0.5rem 0;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.featuresList li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #ff6b6b;
+  font-weight: bold;
+}
+
+.learnMoreBtn {
+  background: transparent;
+  color: #ff6b6b;
+  border: 2px solid #ff6b6b;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.learnMoreBtn:hover {
+  background: #ff6b6b;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Section 3: Premium Services */
+.premiumSection {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.premiumContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.premiumContent h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.premiumSubtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 3rem;
+}
+
+.premiumGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.premiumCard {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.premiumCard:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.premiumHeader {
+  display: flex;
+  justify-content: between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.premiumHeader h3 {
+  font-size: 1.5rem;
+  margin: 0;
+  flex: 1;
+  text-align: left;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffd700;
+}
+
+.premiumDescription {
+  text-align: left;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.benefitsList {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.benefitsList li {
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.checkmark {
+  color: #4cd964;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.premiumCta {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.premiumCta:hover {
+  background: #ff5252;
+  transform: translateY(-2px);
+}
+
+/* Section 4: Process Steps */
+.processSection {
+  padding: 4rem 2rem;
+  background: white;
+}
+
+.processContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.processContent h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.processSubtitle {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  margin-bottom: 3rem;
+}
+
+.processSteps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.processStep {
+  text-align: center;
+  padding: 2rem 1rem;
+  position: relative;
+}
+
+.stepNumber {
+  width: 40px;
+  height: 40px;
+  background: #ff6b6b;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin: 0 auto 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.processStep:not(:last-child):after {
+  content: '';
+  position: absolute;
+  top: 60px;
+  left: 60%;
+  width: 80%;
+  height: 2px;
+  background: #ff6b6b;
+  opacity: 0.3;
+}
+
+.stepIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.processStep h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.processStep p {
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+/* Section 5: Testimonials & FAQ */
+.testimonialsSection {
+  padding: 4rem 2rem;
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.testimonialsContent {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.testimonials h2,
+.faqSide h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.testimonialsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.testimonialCard {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.testimonialCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.testimonialHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.testimonialAvatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.testimonialAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testimonialInfo {
+  flex: 1;
+  text-align: left;
+}
+
+.testimonialInfo h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.testimonialInfo span {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.testimonialRating {
+  margin-left: auto;
+}
+
+.star {
+  color: #ddd;
+  font-size: 1rem;
+}
+
+.starFilled {
+  color: #ffc107;
+  font-size: 1rem;
+}
+
+.testimonialComment {
+  font-style: italic;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* FAQ Side */
+.faqList {
+  margin-bottom: 2rem;
+}
+
+.faqItem {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.faqItem:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.faqItem h4 {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.faqItem p {
+  margin: 0;
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+.contactInfo {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contactInfo h4 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.contactInfo p {
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
+.contactButton {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.contactButton:hover {
+  background: #5a6fd8;
+  transform: translateY(-2px);
+}
+
+/* Dark Theme Adjustments */
+.servicesContainer[style*="background: #1a1a1a"] .serviceCard,
+.servicesContainer[style*="background: #1a1a1a"] .testimonialCard,
+.servicesContainer[style*="background: #1a1a1a"] .faqItem,
+.servicesContainer[style*="background: #1a1a1a"] .contactInfo {
+  background: #2d2d2d;
+}
+
+.servicesContainer[style*="background: #1a1a1a"] .servicesShowcase,
+.servicesContainer[style*="background: #1a1a1a"] .testimonialsSection {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.servicesContainer[style*="background: #1a1a1a"] .processSection {
+  background: #2d2d2d;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .heroContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .servicesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .premiumGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .processSteps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .testimonialsGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection,
+  .servicesShowcase,
+  .premiumSection,
+  .processSection,
+  .testimonialsSection {
+    padding: 2rem 1rem;
+  }
+  
+  .heroText h1 {
+    font-size: 2.5rem;
+  }
+  
+  .processSteps {
+    grid-template-columns: 1fr;
+  }
+  
+  .processStep:not(:last-child):after {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroText h1 {
+    font-size: 2rem;
+  }
+  
+  .serviceCard,
+  .premiumCard {
+    padding: 1.5rem 1rem;
+  }
+  
+  .testimonialHeader {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .testimonialRating {
+    margin-left: 0;
+  }
+}
