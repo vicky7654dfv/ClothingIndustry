@@ -196,8 +196,14 @@ const Services = () => {
                   <span>{service.icon}</span>
                 </div>
                 <h3>{service.title}</h3>
-                <p>{service.description}</p>
-                <ul className={Style.featuresList}>
+                <p style={{
+        background: theme === 'light' ? '#ffffff' : '#ffffff',
+        color: theme === 'light' ? '#333' : '#333'
+      }}>{service.description}</p>
+                <ul style={{
+        background: theme === 'light' ? '#ffffff' : '#ffffff',
+        color: theme === 'light' ? '#333' : '#333'
+      }} className={Style.featuresList}>
                   {service.features.map((feature, idx) => (
                     <li key={idx}>{feature}</li>
                   ))}
@@ -245,8 +251,14 @@ const Services = () => {
       {/* Section 4: How It Works */}
       <section className={Style.processSection}>
         <div className={Style.processContent}>
-          <h2>How Our Services Work</h2>
-          <p className={Style.processSubtitle}>Simple steps to transform your style experience</p>
+          <h2 style={{
+        background: theme === 'light' ? '#ffffff' : '#ffffff',
+        color: theme === 'light' ? '#333' : '#333'
+      }}>How Our Services Work</h2>
+          <p style={{
+        background: theme === 'light' ? '#ffffff' : '#ffffff',
+        color: theme === 'light' ? '#333' : '#333'
+      }} className={Style.processSubtitle}>Simple steps to transform your style experience</p>
           
           <div className={Style.processSteps}>
             {processSteps.map((step) => (
@@ -258,7 +270,10 @@ const Services = () => {
                   {step.icon}
                 </div>
                 <h4>{step.title}</h4>
-                <p>{step.description}</p>
+                <p style={{
+        background: theme === 'light' ? '#ffffff' : '#ffffff',
+        color: theme === 'light' ? '#333' : '#333'
+      }}>{step.description}</p>
               </div>
             ))}
           </div>
@@ -286,14 +301,23 @@ const Services = () => {
                         />
                       </div>
                       <div className={Style.testimonialInfo}>
-                        <h4>{testimonial.name}</h4>
-                        <span>{testimonial.service}</span>
+                        <h4 style={{
+        background: theme === 'light' ? '#ffffff' : '#ffffff',
+        color: theme === 'light' ? '#333' : '#333'
+      }}>{testimonial.name}</h4>
+                        <span style={{
+        background: theme === 'light' ? '#ffffff' : '#ffffff',
+        color: theme === 'light' ? '#333' : '#333'
+      }}>{testimonial.service}</span>
                       </div>
                       <div className={Style.testimonialRating}>
                         {renderStars(testimonial.rating)}
                       </div>
                     </div>
-                    <p className={Style.testimonialComment}>"{testimonial.comment}"</p>
+                    <p style={{
+        background: theme === 'light' ? '#ffffff' : '#ffffff',
+        color: theme === 'light' ? '#333' : '#333'
+      }} className={Style.testimonialComment}>"{testimonial.comment}"</p>
                   </div>
                 ))}
               </div>
@@ -306,13 +330,19 @@ const Services = () => {
                 {serviceFAQs.map((faq, index) => (
                   <div key={index} className={Style.faqItem}>
                     <h4>{faq.question}</h4>
-                    <p>{faq.answer}</p>
+                    <p style={{
+        background: theme === 'light' ? '#ffffff' : '#ffffff',
+        color: theme === 'light' ? '#333' : '#333'
+      }}>{faq.answer}</p>
                   </div>
                 ))}
               </div>
               <div className={Style.contactInfo}>
                 <h4>Need More Help?</h4>
-                <p>Our customer service team is available 24/7 to assist you with any questions.</p>
+                <p style={{
+        background: theme === 'light' ? '#ffffff' : '#ffffff',
+        color: theme === 'light' ? '#333' : '#333'
+      }}>Our customer service team is available 24/7 to assist you with any questions.</p>
                 <button className={Style.contactButton}>
                   Contact Support
                 </button>

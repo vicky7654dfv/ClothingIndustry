@@ -402,9 +402,9 @@
   .itemBox {
     position: absolute;
     top: 5%;
-    left: 2%;
+    left: 7%;
     right: 2%;
-    width: 400px;
+    width: 360px;
     height: 550px;
     padding: 1.5rem;
     border: 2px solid rgba(245, 245, 220, 0.6);

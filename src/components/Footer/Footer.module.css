@@ -297,13 +297,14 @@ hr {
     list-style: none;
 }
 .box li{
-    margin-bottom: 10px
-}
-.box a {
-  position: relative;
-  color: #474747ff;
-  text-decoration: none;
-  transition: color 0.3s ease;
+    margin-bottom: 10px;
+  }
+  .box a {
+    position: relative;
+    color: #474747ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 25px;
 }
 
 .box a::after {
