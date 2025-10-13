@@ -1,18 +1,18 @@
 .signUpWrap {
   margin-top: 80px;
   width: 100%;
-  height: 650px;
+  height: 600px;
   background-image: url("../../assets/Login/bg.jpg");
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: 20rem;
 }
 .imgWrap img {
   width: 100%;
-  height: 250px;
-  transform: translateX(5rem);
+  height: 150px;
+  transform: translateX(10rem);
 }
 .signUpForm {
   display: flex;
@@ -24,7 +24,7 @@
 }
 .signUpForm h2 {
   margin-bottom: 20px;
-  font-size: 4rem;
+  font-size: 2.3rem;
   font-weight: bold;
   color: rgb(59, 59, 59);
 }
@@ -36,20 +36,21 @@
   align-items: center;
 }
 .firstRow input {
-  width: 292px;
+  width: 268px;
+  height: 55px;
 }
 .commonClass {
-  width: 600px;
-  height: 60px;
+  width: 550px;
+  height: 55px;
   margin-bottom: 10px;
   padding: 1.5rem 1rem;
   border-radius: 4px;
-  background-color: beige;
+  background-color: white;
   text-align: left;
-  font-size: 2rem;
+  font-size: 1.3rem;
 }
 .commonClass::placeholder {
-  font-size: 2rem;
+  font-size: 1.3rem;
   color: gray;
 }
 .commonClass:hover {
@@ -57,13 +58,13 @@
   border: 1px solid gray;
 }
 .submitClass {
-  width: 600px;
-  height: 60px;
+  width: 550px;
+  height: 55px;
   margin-top: 20px;
   border-radius: 4px;
   background-color: rgb(59, 59, 59);
   color: white;
-  font-size: 2rem;
+  font-size: 1.3rem;
   font-weight: bold;
   cursor: pointer;
   align-items: center;
@@ -76,13 +77,15 @@
   color: white;
 }
 .loginBtn {
-  display: inline-block;
-  width: 200px;
-  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 125px;
+  height: 55px;
   line-height: 60px;
   text-align: center;
   background-color: indianred;
-  font-size: 2rem;
+  font-size: 1.3rem;
   font-weight: bold;
   border-radius: 4px;
   margin-top: 10px;
@@ -103,7 +106,7 @@
   .signUpWrap {
     margin-top: 80px;
     width: 100%;
-    height: 650px;
+    height: 600px;
     background-image: url("../../assets/Login/bg.jpg");
     background-size: cover;
     display: flex;
@@ -113,8 +116,8 @@
   }
   .imgWrap img {
     width: 100%;
-    height: 100px;
-    transform: translateX(2rem);
+    height: 90px;
+    transform: translateX(8rem);
   }
   .signUpForm {
     display: flex;
@@ -126,7 +129,7 @@
   }
   .signUpForm h2 {
     margin-bottom: 20px;
-    font-size: 3rem;
+    font-size: 2.3rem;
     font-weight: bold;
     color: rgb(59, 59, 59);
   }
@@ -138,20 +141,20 @@
     align-items: center;
   }
   .firstRow input {
-    width: 292px;
+    width: 192px;
   }
   .commonClass {
-    width: 600px;
+    width: 400px;
     height: 60px;
     margin-bottom: 10px;
     padding: 1.5rem 1rem;
     border-radius: 4px;
-    background-color: beige;
+    background-color: white;
     text-align: left;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   .commonClass::placeholder {
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: gray;
   }
   .commonClass:hover {
@@ -159,13 +162,13 @@
     border: 1px solid gray;
   }
   .submitClass {
-    width: 500px;
-    height: 60px;
-    margin-top: 20px;
+    width: 400px;
+    height: 35px;
+    margin-top: 15px;
     border-radius: 4px;
     background-color: rgb(59, 59, 59);
     color: white;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
     align-items: center;
@@ -178,13 +181,15 @@
     color: white;
   }
   .loginBtn {
-    display: inline-block;
-    width: 150px;
-    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 35px;
     line-height: 60px;
     text-align: center;
     background-color: indianred;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
     border-radius: 4px;
     margin-top: 10px;
@@ -203,7 +208,7 @@
   .signUpWrap {
     margin-top: 80px;
     width: 100%;
-    height: 550px;
+    height: 480px;
     background-image: url("../../assets/Login/bg.jpg");
     background-size: cover;
     display: flex;
@@ -213,8 +218,8 @@
   }
   .imgWrap img {
     width: 100%;
-    height: 100px;
-    transform: translateX(2rem);
+    height: 75px;
+    transform: translateX(5rem);
   }
   .signUpForm {
     display: flex;
@@ -226,7 +231,7 @@
   }
   .signUpForm h2 {
     margin-bottom: 20px;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color: rgb(59, 59, 59);
   }
@@ -238,20 +243,21 @@
     align-items: center;
   }
   .firstRow input {
-    width: 192px;
+    width: 140px;
+    height: 40px;
   }
   .commonClass {
-    width: 400px;
-    height: 60px;
+    width: 295px;
+    height: 40px;
     margin-bottom: 10px;
     padding: 0.5rem 0.5rem;
     border-radius: 4px;
-    background-color: beige;
+    background-color: white;
     text-align: left;
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
   .commonClass::placeholder {
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: gray;
   }
   .commonClass:hover {
@@ -259,13 +265,13 @@
     border: 1px solid gray;
   }
   .submitClass {
-    width: 400px;
-    height: 60px;
-    margin-top: 20px;
+    width: 295px;
+    height: 35px;
+    margin-top: 10px;
     border-radius: 4px;
     background-color: rgb(59, 59, 59);
     color: white;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
     align-items: center;
@@ -278,13 +284,15 @@
     color: white;
   }
   .loginBtn {
-    display: inline-block;
-    width: 100px;
-    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75px;
+    height: 30px;
     line-height: 60px;
     text-align: center;
     background-color: indianred;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
     border-radius: 4px;
     margin-top: 10px;
@@ -303,18 +311,18 @@
   .signUpWrap {
     margin-top: 80px;
     width: 100%;
-    height: 550px;
+    height: 450px;
     background-image: url("../../assets/Login/bg.jpg");
     background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 7px;
   }
   .imgWrap img {
     width: 150px;
-    height: 75px;
+    height: 60px;
     transform: translateX(0);
   }
   .signUpForm {
@@ -327,7 +335,7 @@
   }
   .signUpForm h2 {
     margin-bottom: 20px;
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-weight: bold;
     color: rgb(59, 59, 59);
   }
@@ -339,20 +347,21 @@
     align-items: center;
   }
   .firstRow input {
-    width: 142px;
+    width: 132px;
+    height: 35px;
   }
   .commonClass {
-    width: 300px;
-    height: 50px;
+    width: 280px;
+    height: 35px;
     margin-bottom: 10px;
     padding: 0.5rem 0.5rem;
     border-radius: 4px;
-    background-color: beige;
+    background-color: white;
     text-align: left;
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
   .commonClass::placeholder {
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: gray;
   }
   .commonClass:hover {
@@ -360,13 +369,13 @@
     border: 1px solid gray;
   }
   .submitClass {
-    width: 300px;
-    height: 50px;
-    margin-top: 10px;
+    width: 280px;
+    height: 35px;
+    margin-top: 7px;
     border-radius: 4px;
     background-color: rgb(59, 59, 59);
     color: white;
-    font-size: 1.5rem;
+    font-size: 0.8rem;
     font-weight: bold;
     cursor: pointer;
     align-items: center;
@@ -379,13 +388,15 @@
     color: white;
   }
   .loginBtn {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100px;
-    height: 50px;
+    height: 30px;
     line-height: 60px;
     text-align: center;
     background-color: indianred;
-    font-size: 1.5rem;
+    font-size: 0.8rem;
     align-items: center;
     display: flex;
     justify-content: center;
