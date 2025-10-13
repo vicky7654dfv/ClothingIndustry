@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { ThemeContext } from '../../components/ThemeContext/ThemeContext';
 import Style from './Services.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const Services = () => {
   const { theme } = useContext(ThemeContext);
   const [activeService, setActiveService] = useState(0);
-
+const navigate=useNavigate();
   // Main services data
   const mainServices = [
     {
@@ -163,8 +164,8 @@ const Services = () => {
               Our team of expert stylists and fashion consultants are here to help you discover your 
               unique style, build a versatile wardrobe, and shop with confidence.
             </p>
-            <button className={Style.ctaButton}>
-              Book a Style Consultation
+            <button onClick={()=>{navigate("/Error")}} className={Style.ctaButton}>
+             Book a Style Consultation
             </button>
           </div>
           <div className={Style.heroImage}>
@@ -208,7 +209,7 @@ const Services = () => {
                     <li key={idx}>{feature}</li>
                   ))}
                 </ul>
-                <button className={Style.learnMoreBtn}>
+                <button onClick={()=>{navigate("/Error")}} className={Style.learnMoreBtn}>
                   Learn More
                 </button>
               </div>
@@ -239,7 +240,7 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
-                <button className={Style.premiumCta}>
+                <button onClick={()=>{navigate("/Error")}} className={Style.premiumCta}>
                   Get Started
                 </button>
               </div>
@@ -343,7 +344,7 @@ const Services = () => {
         background: theme === 'light' ? '#ffffff' : '#ffffff',
         color: theme === 'light' ? '#333' : '#333'
       }}>Our customer service team is available 24/7 to assist you with any questions.</p>
-                <button className={Style.contactButton}>
+                <button onClick={()=>{navigate("/Contact")}} className={Style.contactButton}>
                   Contact Support
                 </button>
               </div>
