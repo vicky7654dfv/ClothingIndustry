@@ -9,3 +9,6 @@ body{
   overflow-y: scroll;
   font-family: 'Times New Roman';
 }
+html, body {
+  scroll-behavior: smooth;
+}

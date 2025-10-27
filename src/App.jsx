@@ -14,8 +14,20 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import Home2 from "./pages/Home2/Home2";
 import FAQ from "./pages/FAQ/FAQ";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import DashBoard from "./pages/DashBoard/DashBoard";
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // animation duration (1s)
+      once: true, // animate only once per element
+      easing: "ease-in-out", 
+    });
+  }, []);
   return (
     <>
       <BrowserRouter>
@@ -23,6 +35,7 @@ function App() {
           <CartProvider>
           <SearchProvider>
           <Header />
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/AboutUs" element={<AboutUs />} />
@@ -34,6 +47,7 @@ function App() {
             <Route path="/Login" element={<LoginPage />} />
             <Route path="/Error" element={<Error />} />
             <Route path="/HomePage2" element={<Home2 />} />
+            <Route path="/DashBoard" element={<DashBoard />} />
           </Routes>
           </SearchProvider>
           </CartProvider>

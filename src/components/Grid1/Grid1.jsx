@@ -69,7 +69,7 @@ const filteredProducts = products.filter(
 );
   return (
     <>
-      <div
+      <div data-aos="fade-left"
         className={Style.gridWrap}
         style={{
           background: theme === "light" ? "#ebebebff" : "#474747ff",

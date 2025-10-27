@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <>
       <hr />
-      <div
+      <div data-aos="fade-up"
         className={Style.footerWrap}
         style={{
           background: theme === "light" ? "#ebebebff" : "#474747ff",

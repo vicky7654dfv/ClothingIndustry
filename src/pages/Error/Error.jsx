@@ -5,7 +5,7 @@ import { ThemeContext } from "../../components/ThemeContext/ThemeContext";
 export default function Error() {
           const {theme} = useContext(ThemeContext)
   return (
-    <div className={Style.errorWrap} style={{
+    <div data-aos="zoom" className={Style.errorWrap} style={{
         background: theme === "light" ? "#ebebebff" : "#474747ff",
         color: theme === "light" ? "#474747ff" : "#ebebebff",
       }}>

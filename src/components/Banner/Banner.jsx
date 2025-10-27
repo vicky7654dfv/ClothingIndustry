@@ -4,7 +4,7 @@ import Vid from "../../assets/Banner/bannerVideo.mp4";
 import { Link } from "react-router-dom";
 export default function Banner() {
   return (
-    <div className={Style.bannerWrap}>
+    <div className={Style.bannerWrap} data-aos="zoom-in">
      <video src={Vid} autoPlay loop muted playsInline></video>
      <div className={Style.textWrap}>
       <h3>Clothing Industry</h3>

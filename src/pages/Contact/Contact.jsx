@@ -12,7 +12,7 @@ export default function Contact() {
     navigate("/Error");
   };
   return (
-    <div
+    <div data-aos="slide-up"
       className={Style.contactWrap}
       style={{
         background: theme === "light" ? "#ebebebff" : "#474747ff",

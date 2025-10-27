@@ -19,7 +19,7 @@
   align-items: center;
   gap: 30px;
   list-style: none;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 500;
 }
 .headerWrap input {
@@ -156,7 +156,7 @@
 }
 .headerWrap ul {
   gap: 25px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
 }
 .headerWrap input {
@@ -232,7 +232,7 @@
 }
 .headerWrap ul {
   gap: 15px;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 400;
 }
 .headerWrap input {
@@ -314,7 +314,7 @@
 }
 
 .headerWrap ul {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 400;
     flex-direction: column;
     gap: 20px;

@@ -230,7 +230,7 @@ export default function FAQ() {
   ];
 
   return (
-    <div
+    <div data-aos="fade-up"
       className={Style.faqWrap}
       style={{
         background: theme === "light" ? "#fdfdfd" : "#474747ff",

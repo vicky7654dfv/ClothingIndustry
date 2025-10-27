@@ -4,7 +4,7 @@ import Bg from "../../assets/Banner2/bg2.jpg";
 import { Link } from "react-router-dom";
 export default function Banner2() {
   return (
-    <div className={Style.bannerWrap}>
+    <div className={Style.bannerWrap} data-aos="zoom-in">
      <img src={Bg} alt="" />
      <div className={Style.textWrap}>
       <h3>Style Revolution</h3>

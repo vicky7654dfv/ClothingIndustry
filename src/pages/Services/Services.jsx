@@ -143,7 +143,7 @@ const navigate=useNavigate();
   };
 
   return (
-    <div 
+    <div data-aos="fade-up" 
       className={Style.servicesContainer}
       style={{
         background: theme === 'light' ? '#ffffff' : '#1a1a1a',

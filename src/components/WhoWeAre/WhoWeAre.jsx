@@ -7,7 +7,7 @@ import { ThemeContext } from "../ThemeContext/ThemeContext";
 export default function WhoWeAre() {
   const { theme } = useContext(ThemeContext);
   return (
-    <div
+    <div data-aos="fade-up"
       className={Style.fullWrap}
       style={{
         background: theme === "light" ? "#ebebebff" : "#474747ff",

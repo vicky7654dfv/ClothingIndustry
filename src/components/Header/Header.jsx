@@ -12,7 +12,7 @@ export default function Header() {
   const location = useLocation();
   const isHome2 = location.pathname === "/HomePage2";
   return (
-    <div
+    <div data-aos="fade"
       className={Style.headerWrap}
       style={{
         background: theme === "light" ? "#ebebebff" : "#474747ff",
@@ -57,6 +57,14 @@ export default function Header() {
               style={{ color: theme === "light" ? "#474747" : "#ebebeb" }}
             >
               About Us
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/DashBoard"
+              style={{ color: theme === "light" ? "#474747" : "#ebebeb" }}
+            >
+              DashBoard
             </Link>
           </li>
           <li>

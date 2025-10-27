@@ -9,7 +9,7 @@ import { ThemeContext } from '../ThemeContext/ThemeContext'
 export default function Unique() {
                 const {theme} = useContext(ThemeContext)
     
-  return (<div className={Style.outerWrap} style={{
+  return (<div data-aos="fade-up" className={Style.outerWrap} style={{
         background: theme === "light" ? "#ebebebff" : "#474747ff",
         color: theme === "light" ? "#474747ff" : "#ebebebff",
       }}>

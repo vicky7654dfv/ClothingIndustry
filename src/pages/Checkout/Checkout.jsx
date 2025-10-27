@@ -12,7 +12,7 @@ export default function Checkout() {
 
   return (
     <>
-      <div
+      <div data-aos="flip-up"
         className={Style.checkoutWrap}
         style={{
           background: theme === "light" ? "#ebebebff" : "#474747ff",
