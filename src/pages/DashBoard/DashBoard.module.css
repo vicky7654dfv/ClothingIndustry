@@ -697,7 +697,6 @@
 @media (max-width: 768px) {
   .dashboardContainer {
     padding: 1rem;
-    margin-top: 70px;
   }
 
   .metricsGrid,
@@ -739,7 +738,6 @@
 @media (max-width: 425px) {
   .dashboardContainer {
     padding: 0.5rem;
-    margin-top: 60px;
   }
 
   .headerContent h1 {
