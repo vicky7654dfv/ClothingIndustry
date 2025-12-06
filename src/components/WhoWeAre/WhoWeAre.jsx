@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Img from "../../assets/WhoWeAre/Img.jpg";
+import Img from "../../assets/WhoWeAre/Img.webp";
 import Style from "./WhoWeAre.module.css";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../ThemeContext/ThemeContext";

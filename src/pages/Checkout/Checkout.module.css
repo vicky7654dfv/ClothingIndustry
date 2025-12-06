@@ -221,7 +221,7 @@
   border-radius: 12px;
   box-shadow: 0 0 25px rgba(245, 245, 220, 0.4),
     0 0 50px rgba(245, 245, 220, 0.2);
-  background-image: url("../../assets/Checkout/bgImg.jpg");
+  background-image: url("../../assets/Checkout/bgImg.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -285,7 +285,7 @@
     border-radius: 12px;
     box-shadow: 0 0 25px rgba(245, 245, 220, 0.4),
       0 0 50px rgba(245, 245, 220, 0.2);
-    background-image: url("../../assets/Checkout/bgImg.jpg");
+    background-image: url("../../assets/Checkout/bgImg.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -348,7 +348,7 @@
     border-radius: 12px;
     box-shadow: 0 0 25px rgba(245, 245, 220, 0.4),
       0 0 50px rgba(245, 245, 220, 0.2);
-    background-image: url("../../assets/Checkout/bgImg.jpg");
+    background-image: url("../../assets/Checkout/bgImg.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -411,7 +411,7 @@
     border-radius: 12px;
     box-shadow: 0 0 25px rgba(245, 245, 220, 0.4),
       0 0 50px rgba(245, 245, 220, 0.2);
-    background-image: url("../../assets/Checkout/bgImg.jpg");
+    background-image: url("../../assets/Checkout/bgImg.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

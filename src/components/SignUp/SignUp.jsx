@@ -1,10 +1,9 @@
 import React, { useContext, useState } from "react";
 import Style from "./SignUp.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import ImgSide from "../../assets/Header/logo1.png";
+import ImgSide from "../../assets/Header/logo1.webp";
 import { ThemeContext } from "../ThemeContext/ThemeContext";
-import Error from "./../../pages/Error/Error";
-import Login from "./../Login/Login";
+
 export default function SignUp() {
   const { theme } = useContext(ThemeContext);
 

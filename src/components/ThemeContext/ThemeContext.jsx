@@ -1,5 +1,4 @@
 import React, { createContext, useState } from "react";
-import Header from "../Header/Header";
 
 export const ThemeContext = createContext();
 

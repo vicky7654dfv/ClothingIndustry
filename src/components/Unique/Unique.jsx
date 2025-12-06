@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import Img1 from "../../assets/Unique/1.png"
-import Img2 from "../../assets/Unique/2.png"
-import Img3 from "../../assets/Unique/3.png"
-import Img4 from "../../assets/Unique/4.png"
+import Img1 from "../../assets/Unique/1.webp"
+import Img2 from "../../assets/Unique/2.webp"
+import Img3 from "../../assets/Unique/3.webp"
+import Img4 from "../../assets/Unique/4.webp"
 import Style from "./Unique.module.css"
 import { ThemeContext } from '../ThemeContext/ThemeContext'
 

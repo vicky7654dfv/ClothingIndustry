@@ -1,6 +1,6 @@
 import React from "react";
 import Style from "./Banner2.module.css";
-import Bg from "../../assets/Banner2/bg2.jpg";
+import Bg from "../../assets/Banner2/bg2.webp";
 import { Link } from "react-router-dom";
 export default function Banner2() {
   return (

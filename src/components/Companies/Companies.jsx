@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
-import Img1 from "../../assets/Companies/adidas.png"
-import Img2 from "../../assets/Companies/flying.jpeg"
-import Img3 from "../../assets/Companies/pepe.png"
-import Img4 from "../../assets/Companies/allen.png"
-import Img5 from "../../assets/Companies/rare.png"
-import Img6 from "../../assets/Companies/basics.png"
-import Img7 from "../../assets/Companies/puma.png"
-import Img8 from "../../assets/Companies/peter.png"
+import Img1 from "../../assets/Companies/adidas.webp"
+import Img2 from "../../assets/Companies/flying.webp"
+import Img3 from "../../assets/Companies/pepe.webp"
+import Img4 from "../../assets/Companies/allen.webp"
+import Img5 from "../../assets/Companies/rare.webp"
+import Img6 from "../../assets/Companies/basics.webp"
+import Img7 from "../../assets/Companies/puma.webp"
+import Img8 from "../../assets/Companies/peter.webp"
 import Style from './Companies.module.css' 
 import { ThemeContext } from '../ThemeContext/ThemeContext'
 

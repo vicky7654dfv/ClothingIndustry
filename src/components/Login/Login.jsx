@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import Style from "./Login.module.css";
 import { useNavigate } from "react-router-dom";
-import ImgBg from "../../assets/Header/logo1.png";
+import ImgBg from "../../assets/Header/logo1.webp";
 import { ThemeContext } from "../ThemeContext/ThemeContext";
 export default function Login() {
   const { theme, toggleTheme } = useContext(ThemeContext);

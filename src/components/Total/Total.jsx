@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import Style from './Total.module.css'
-import Img1 from "../../assets/Total/1.jpg"
-import Img2 from "../../assets/Total/2.jpg"
-import Img3 from "../../assets/Total/3.jpg"
-import Img4 from "../../assets/Total/4.jpg"
+import Img1 from "../../assets/Total/1.webp"
+import Img2 from "../../assets/Total/2.webp"
+import Img3 from "../../assets/Total/3.webp"
+import Img4 from "../../assets/Total/4.webp"
 import { ThemeContext } from '../ThemeContext/ThemeContext'
 import CountUp from 'react-countup'
 import { useInView } from 'react-intersection-observer'

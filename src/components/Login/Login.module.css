@@ -2,7 +2,7 @@
   margin-top: 80px;
   width: 100%;
   height: 600px;
-  background-image: url("../../assets/Login/bg.jpg");
+  background-image: url("../../assets/Login/bg.webp");
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -97,7 +97,7 @@
   margin-top: 80px;
   width: 100%;
   height: 600px;
-  background-image: url("../../assets/Login/bg.jpg");
+  background-image: url("../../assets/Login/bg.webp");
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -191,7 +191,7 @@
   margin-top: 80px;
   width: 100%;
   height: 480px;
-  background-image: url("../../assets/Login/bg.jpg");
+  background-image: url("../../assets/Login/bg.webp");
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -286,7 +286,7 @@
   margin-top: 80px;
   width: 100%;
   height: 450px;
-  background-image: url("../../assets/Login/bg.jpg");
+  background-image: url("../../assets/Login/bg.webp");
   background-size: cover;
   display: flex;
   flex-direction: column;

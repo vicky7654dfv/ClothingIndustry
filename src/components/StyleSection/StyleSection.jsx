@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import Style from "./StyleSection.module.css";
-import { Link } from "react-router-dom";
 import { ThemeContext } from "../ThemeContext/ThemeContext";
 
 export default function StyleSection() {

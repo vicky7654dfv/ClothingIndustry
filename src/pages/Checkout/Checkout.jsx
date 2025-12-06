@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { CartContext } from "../../components/CartContext/CartContext.jsx";
 import Style from "./Checkout.module.css";
-import Img1 from "../../assets/Checkout/1.jpg";
+import Img1 from "../../assets/Checkout/1.webp";
 import Vid from "../../assets/Checkout/vidBg.mp4";
 import { ThemeContext } from "../../components/ThemeContext/ThemeContext.jsx";
 import { Link } from "react-router-dom";

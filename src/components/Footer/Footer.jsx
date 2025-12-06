@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import Style from "./Footer.module.css";
-import Img1 from "../../assets/Header/logo1.png";
-import { Link } from "react-router-dom";
+import Img1 from "../../assets/Header/logo1.webp";
 import { ThemeContext } from "../ThemeContext/ThemeContext";
+
 export default function Footer() {
   const { theme } = useContext(ThemeContext);
   return (
@@ -22,66 +22,66 @@ export default function Footer() {
             sustainability — making Stackly a global symbol of confidence and
             style.
           </p>
-          <Link to={"/AboutUs"}>
+          <a href="/AboutUs">
             <button>
               More about company<i className="fa-solid fa-angles-right"></i>
             </button>
-          </Link>
+          </a>
         </div>
         <div className={Style.box}>
           <h4>Quick links</h4>
           <ul>
             <li>
-              <Link
-                to={"/AboutUs"}
+              <a
+                href="/AboutUs"
                 style={{
                   background: theme === "light" ? "#ebebebff" : "#474747ff",
                   color: theme === "light" ? "#474747ff" : "#ebebebff",
                 }}
               >
                 About Us
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
-                to={"/Services"}
+              <a
+                href="/Services"
                 style={{
                   background: theme === "light" ? "#ebebebff" : "#474747ff",
                   color: theme === "light" ? "#474747ff" : "#ebebebff",
                 }}
               >
                 Services
-              </Link>
+              </a>
             </li>
             <li>
-              <Link to={"/FAQ"}
+              <a href="/FAQ"
                 style={{
                   background: theme === "light" ? "#ebebebff" : "#474747ff",
                   color: theme === "light" ? "#474747ff" : "#ebebebff",
                 }}
               >
                 FAQ
-              </Link>
+              </a>
             </li>
             <li>
-              <Link to={"/Contact"}
+              <a href="/Contact"
                 style={{
                   background: theme === "light" ? "#ebebebff" : "#474747ff",
                   color: theme === "light" ? "#474747ff" : "#ebebebff",
                 }}
               >
                 Contact
-              </Link>
+              </a>
             </li>
             <li>
-              <Link to={"/SignUp"}
+              <a href="/SignUp"
                 style={{
                   background: theme === "light" ? "#ebebebff" : "#474747ff",
                   color: theme === "light" ? "#474747ff" : "#ebebebff",
                 }}
               >
                 Sign Up
-              </Link>
+              </a>
             </li>
           </ul>
         </div>
@@ -116,42 +116,42 @@ export default function Footer() {
             updates, and tips to elevate your wardrobe with confidence.
           </p>
           <div className={Style.media}>
-            <Link
-              to={"/Error"}
+            <a
+              href="/Error"
               style={{
                 background: theme === "light" ? "#ebebebff" : "#474747ff",
                 color: theme === "light" ? "#474747ff" : "#ebebebff",
               }}
             >
               <i className="fa-brands fa-linkedin-in"></i>
-            </Link>
-            <Link
-              to={"/Error"}
+            </a>
+            <a
+              href="/Error"
               style={{
                 background: theme === "light" ? "#ebebebff" : "#474747ff",
                 color: theme === "light" ? "#474747ff" : "#ebebebff",
               }}
             >
               <i className="fa-brands fa-facebook-f"></i>
-            </Link>
-            <Link
-              to={"/Error"}
+            </a>
+            <a
+              href="/Error"
               style={{
                 background: theme === "light" ? "#ebebebff" : "#474747ff",
                 color: theme === "light" ? "#474747ff" : "#ebebebff",
               }}
             >
               <i className="fa-brands fa-x-twitter"></i>
-            </Link>
-            <Link
-              to={"/Error"}
+            </a>
+            <a
+              href="/Error"
               style={{
                 background: theme === "light" ? "#ebebebff" : "#474747ff",
                 color: theme === "light" ? "#474747ff" : "#ebebebff",
               }}
             >
               <i className="fa-brands fa-instagram"></i>
-            </Link>
+            </a>
           </div>
         </div>
       </div>
