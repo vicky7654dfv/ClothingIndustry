@@ -19,7 +19,6 @@ export default function Total() {
   return (
     <div
       ref={ref}
-      data-aos="fade-up"
       className={Style.totalWrap}
       style={{
         background: theme === "light" ? "#ebebebff" : "#474747ff",

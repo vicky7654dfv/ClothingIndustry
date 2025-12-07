@@ -62,7 +62,7 @@ export default function SignUp() {
   };
 
   return (
-    <div data-aos="fade-bottom"
+    <div
       className={Style.signUpWrap}
       style={{
         background: theme === "light" ? "#ebebebff" : "#474747ff",

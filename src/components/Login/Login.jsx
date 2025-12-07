@@ -23,7 +23,7 @@ export default function Login() {
   };
 
   return (
-    <div data-aos="fade-bottom"
+    <div
       className={Style.loginWrap}
       style={{
         background: theme === "light" ? "#ebebebff" : "#474747ff",

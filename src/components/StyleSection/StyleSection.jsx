@@ -5,7 +5,7 @@ import { ThemeContext } from "../ThemeContext/ThemeContext";
 export default function StyleSection() {
   const { theme } = useContext(ThemeContext);
   return (
-    <div data-aos="fade-up"
+    <div
       className={Style.fullWrap}
       style={{
         background: theme === "light" ? "#ebebebff" : "#474747ff",

@@ -13,7 +13,7 @@ import { ThemeContext } from '../ThemeContext/ThemeContext'
 export default function Companies() {
     const {theme} = useContext(ThemeContext)
   return (
-    <div data-aos="fade-up" className={Style.companiesWrap} style={{
+    <div className={Style.companiesWrap} style={{
         background: theme === "light" ? "#ebebebff" : "#474747ff",
         color: theme === "light" ? "#474747ff" : "#ebebebff",
       }}>

@@ -8,7 +8,9 @@ body{
   overflow-x: hidden;
   overflow-y: scroll;
   font-family: 'Times New Roman';
+  width: 100%;
+  position: relative;
 }
 html, body {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }

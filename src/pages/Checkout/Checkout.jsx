@@ -4,15 +4,22 @@ import Style from "./Checkout.module.css";
 import Img1 from "../../assets/Checkout/1.webp";
 import Vid from "../../assets/Checkout/vidBg.mp4";
 import { ThemeContext } from "../../components/ThemeContext/ThemeContext.jsx";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Checkout() {
-  const { cart, total } = useContext(CartContext);
+  // 1. Get all necessary functions from Context
+  const { cart, total, clearCart, addToCart, removeFromCart, setQuantity } = useContext(CartContext);
   const { theme } = useContext(ThemeContext);
+  const navigate = useNavigate();
+
+  const handlePlaceOrder = () => {
+    clearCart();
+    navigate("/Error");
+  };
 
   return (
     <>
-      <div data-aos="flip-up"
+      <div
         className={Style.checkoutWrap}
         style={{
           background: theme === "light" ? "#ebebebff" : "#474747ff",
@@ -30,27 +37,76 @@ export default function Checkout() {
               Browse through our latest collections and add your favorite
               products to proceed with checkout.
             </h4>
-            <button>
-              <Link to={"/"}>Get it Now</Link>
-            </button>
+            <div className={Style.btnWrapper}>
+              <Link to="/" className={Style.getItNowBtn}>
+                Get it Now
+              </Link>
+            </div>
           </div>
         ) : (
           <div className={Style.itemWrap}>
-          <video src={Vid} autoPlay loop muted playsInline></video>
-<div className={Style.itemBox}>
-  {cart.map((item, index) => (
-    <div key={item.id} className={Style.items} style={{ top: `${20 + index * 8}%` }}>
-      <strong className={Style.str1}>{item.brand}</strong>
-      <strong className={Style.str2}>
-        — {item.desc} × {item.qty} = ₹{(item.price * item.qty).toLocaleString("en-IN")}
-      </strong>
-    </div>
-  ))}
+            <video src={Vid} autoPlay loop muted playsInline></video>
+            <div className={Style.itemBox}>
+              
+              {/* Scrollable list of items */}
+              <div className={Style.scrollableList}>
+                {cart.map((item) => (
+                  <div key={item.id} className={Style.items}>
+                    
+                    {/* Item Info (Brand, Desc, Price) */}
+                    <div className={Style.itemInfo}>
+                      <strong className={Style.str1}>{item.brand}</strong>
+                      <span className={Style.str2}>{item.desc}</span>
+                      <span className={Style.priceText}>
+                         ₹{(item.price * item.qty).toLocaleString("en-IN")}
+                      </span>
+                    </div>
 
-  <h3 className={Style.total}>Total: ₹{Number(total).toLocaleString("en-IN")}</h3>
-  </div>
-</div>
+                    {/* Controls (+, -, x) */}
+                    <div className={Style.controls}>
+                      <div className={Style.qtyHandler}>
+                        <button 
+                          onClick={() => removeFromCart(item)} 
+                          className={Style.qtyBtn}
+                        >
+                          −
+                        </button>
+                        <span className={Style.qtyNum}>{item.qty}</span>
+                        <button 
+                          onClick={() => addToCart(item)} 
+                          className={Style.qtyBtn}
+                        >
+                          +
+                        </button>
+                      </div>
 
+                      {/* Remove Button (X) */}
+                      <button 
+                        className={Style.removeBtn} 
+                        onClick={() => setQuantity(item.id, 0)}
+                        title="Remove item"
+                      >
+                        ✕
+                      </button>
+                    </div>
+
+                  </div>
+                ))}
+              </div>
+              
+              {/* Footer with Total and Place Order Button */}
+              <div className={Style.checkoutFooter}>
+                <h3 className={Style.total}>Total: ₹{Number(total).toLocaleString("en-IN")}</h3>
+                <button 
+                  className={Style.placeOrderBtn} 
+                  onClick={handlePlaceOrder}
+                >
+                  Place Order
+                </button>
+              </div>
+
+            </div>
+          </div>
         )}
       </div>
     </>

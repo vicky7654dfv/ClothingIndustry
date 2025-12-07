@@ -195,7 +195,6 @@ const DashBoard = () => {
 
   return (
     <div
-      data-aos="fade-up"
       className={Style.dashboardContainer}
       style={{
         background: theme === "light" ? "#ebebebff" : "#474747ff",
@@ -203,7 +202,7 @@ const DashBoard = () => {
       }}
     >
       {/* Header */}
-      <header data-aos="fade-up" className={Style.dashboardHeader}>
+      <header className={Style.dashboardHeader}>
         <div className={Style.headerContent}>
           <h1>Dashboard Overview</h1>
           <p>Welcome back! Here's what's happening with your store today.</p>
@@ -227,12 +226,11 @@ const DashBoard = () => {
       </header>
 
       {/* Section 1: Key Metrics */}
-      <section data-aos="fade-up" className={Style.metricsSection}>
+      <section className={Style.metricsSection}>
         <h2>Key Performance Indicators</h2>
         <div className={Style.metricsGrid}>
           {salesMetrics.map((metric) => (
             <div
-              data-aos="fade-up"
               key={metric.id}
               className={Style.metricCard}
               style={{
@@ -261,11 +259,10 @@ const DashBoard = () => {
       </section>
 
       {/* Section 2: Charts Section */}
-      <section data-aos="fade-up" className={Style.chartsSection}>
+      <section className={Style.chartsSection}>
         <div className={Style.chartsGrid}>
           {/* Mountain Chart - Monthly Sales */}
           <div
-            data-aos="fade-up"
             className={Style.chartCard}
             style={{
               background: theme === "light" ? "#ffffff" : "#2d2d2d",
@@ -278,7 +275,7 @@ const DashBoard = () => {
               <span className={Style.chartSubtitle}>Last 12 months</span>
             </div>
             {/* Mountain Chart */}
-            <div data-aos="fade-up" className={Style.chartContainer}>
+            <div className={Style.chartContainer}>
               <svg viewBox="0 0 100 100" className={Style.mountainChart}>
                 <defs>
                   <linearGradient
@@ -317,7 +314,7 @@ const DashBoard = () => {
                   className={Style.mountainLine}
                 />
               </svg>
-              <div data-aos="fade-up" className={Style.chartLabels}>
+              <div className={Style.chartLabels}>
                 {monthlySales.map((month, index) => (
                   <span key={month.month} className={Style.chartLabel}>
                     {month.month}
@@ -339,7 +336,6 @@ const DashBoard = () => {
 
           {/* Pie Chart - Customer Distribution */}
           <div
-            data-aos="fade-up"
             className={Style.chartCard}
             style={{
               background: theme === "light" ? "#ffffff" : "#2d2d2d",
@@ -352,7 +348,7 @@ const DashBoard = () => {
               <span className={Style.chartSubtitle}>By category</span>
             </div>
             {/* Pie Chart */}
-            <div data-aos="fade-up" className={Style.pieChartContainer}>
+            <div className={Style.pieChartContainer}>
               <svg viewBox="0 0 100 100" className={Style.pieChart}>
                 {pieData.map((segment, index) => {
                   const startAngle = (segment.start / 100) * 360;
@@ -391,7 +387,7 @@ const DashBoard = () => {
                   fill={theme === "light" ? "#ffffff" : "#2d2d2d"}
                 />
               </svg>
-              <div data-aos="fade-up" className={Style.pieLegend}>
+              <div className={Style.pieLegend}>
                 {pieData.map((segment, index) => (
                   <div key={index} className={Style.legendItem}>
                     <div
@@ -410,11 +406,10 @@ const DashBoard = () => {
       </section>
 
       {/* Section 3: Recent Activity & Top Products */}
-      <section data-aos="fade-up" className={Style.dataSection}>
-        <div data-aos="fade-up" className={Style.dataGrid}>
+      <section className={Style.dataSection}>
+        <div className={Style.dataGrid}>
           {/* Recent Activity Feed */}
           <div
-            data-aos="fade-up"
             className={Style.dataCard}
             style={{
               background: theme === "light" ? "#ffffff" : "#2d2d2d",
@@ -431,7 +426,6 @@ const DashBoard = () => {
             <div className={Style.activityList}>
               {recentActivities.map((activity) => (
                 <div
-                  data-aos="fade-up"
                   style={{
                     background: theme === "light" ? "#ebebebff" : "#474747ff",
                     color: theme === "light" ? "#474747ff" : "#ebebebff",
@@ -456,7 +450,6 @@ const DashBoard = () => {
 
           {/* Top Selling Products */}
           <div
-            data-aos="fade-up"
             className={Style.dataCard}
             style={{
               background: theme === "light" ? "#ffffff" : "#2d2d2d",
@@ -473,7 +466,6 @@ const DashBoard = () => {
             <div className={Style.productsList}>
               {topProducts.map((product) => (
                 <div
-                  data-aos="fade-up"
                   style={{
                     background: theme === "light" ? "#ebebebff" : "#474747ff",
                     color: theme === "light" ? "#474747ff" : "#ebebebff",
@@ -503,11 +495,10 @@ const DashBoard = () => {
       </section>
 
       {/* Section 4: Sales Targets Progress */}
-      <section data-aos="fade-up" className={Style.targetsSection}>
+      <section className={Style.targetsSection}>
         <h2>Sales Targets Progress</h2>
-        <div data-aos="fade-up" className={Style.targetsGrid}>
+        <div className={Style.targetsGrid}>
           <div
-            data-aos="fade-up"
             className={Style.targetsCard}
             style={{
               background: theme === "light" ? "#ffffff" : "#2d2d2d",
@@ -520,30 +511,36 @@ const DashBoard = () => {
               <span className={Style.targetsSubtitle}>Current progress</span>
             </div>
             {/* Progress Bars */}
-            <div data-aos="fade-up" className={Style.progressSection}>
+            <div className={Style.progressSection}>
               {salesTargets.map((target, index) => (
                 <div key={index} className={Style.progressItem}>
                   <div className={Style.progressHeader}>
-                    <span className={Style.progressCategory}>{target.category}</span>
+                    <span className={Style.progressCategory}>
+                      {target.category}
+                    </span>
                     <span className={Style.progressValue}>
-                      {typeof target.current === 'number' && target.current > 1000 
-                        ? `$${target.current}M` 
+                      {typeof target.current === "number" &&
+                      target.current > 1000
+                        ? `$${target.current}M`
                         : target.current}
-                      /{typeof target.target === 'number' && target.target > 1000 
-                        ? `$${target.target}M` 
+                      /
+                      {typeof target.target === "number" && target.target > 1000
+                        ? `$${target.target}M`
                         : target.target}
                     </span>
                   </div>
                   <div className={Style.progressBarContainer}>
-                    <div 
+                    <div
                       className={Style.progressBar}
                       style={{
                         width: `${target.progress}%`,
-                        background: `linear-gradient(90deg, #667eea, #764ba2)`
+                        background: `linear-gradient(90deg, #667eea, #764ba2)`,
                       }}
                     />
                   </div>
-                  <span className={Style.progressPercent}>{target.progress}%</span>
+                  <span className={Style.progressPercent}>
+                    {target.progress}%
+                  </span>
                 </div>
               ))}
             </div>
@@ -551,7 +548,6 @@ const DashBoard = () => {
 
           {/* Yearly Sales Comparison */}
           <div
-            data-aos="fade-up"
             className={Style.yearlyCard}
             style={{
               background: theme === "light" ? "#ffffff" : "#2d2d2d",
@@ -564,10 +560,12 @@ const DashBoard = () => {
               <span className={Style.growthBadge}>+42% Overall Growth</span>
             </div>
             {/* Bar Chart */}
-            <div data-aos="fade-up" className={Style.barChartContainer}>
+            <div className={Style.barChartContainer}>
               <div className={Style.barChart}>
                 {yearlySales.map((year, index) => {
-                  const maxBarValue = Math.max(...yearlySales.map((y) => y.sales));
+                  const maxBarValue = Math.max(
+                    ...yearlySales.map((y) => y.sales)
+                  );
                   return (
                     <div key={index} className={Style.barGroup}>
                       <div className={Style.barWrapper}>
@@ -591,11 +589,10 @@ const DashBoard = () => {
       </section>
 
       {/* Section 5: Quick Actions */}
-      <section data-aos="fade-up" className={Style.actionsSection}>
+      <section className={Style.actionsSection}>
         <h2>Quick Actions</h2>
-        <div data-aos="fade-up" className={Style.actionsGrid}>
+        <div className={Style.actionsGrid}>
           <button
-            data-aos="fade-up"
             type="button"
             onClick={() => navigate("/Error")}
             className={Style.actionBtn}
@@ -604,7 +601,6 @@ const DashBoard = () => {
             <span>Manage Inventory</span>
           </button>
           <button
-            data-aos="fade-up"
             type="button"
             onClick={() => navigate("/Error")}
             className={Style.actionBtn}
@@ -613,7 +609,6 @@ const DashBoard = () => {
             <span>Customer Management</span>
           </button>
           <button
-            data-aos="fade-up"
             type="button"
             onClick={() => navigate("/Error")}
             className={Style.actionBtn}
@@ -622,7 +617,6 @@ const DashBoard = () => {
             <span>Sales Reports</span>
           </button>
           <button
-            data-aos="fade-up"
             type="button"
             onClick={() => navigate("/Error")}
             className={Style.actionBtn}

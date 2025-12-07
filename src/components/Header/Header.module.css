@@ -1,3 +1,7 @@
+/* =========================================
+   1. NORMAL CSS (Global / Desktop Defaults)
+   ========================================= */
+
 .headerWrap {
   width: 100%;
   height: 80px;
@@ -64,6 +68,30 @@
   width: 100%;
 }
 
+/* --- NEW BADGE STYLES --- */
+.cartBadge {
+  background-color: indianred;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 6px;
+  margin-left: 6px;
+  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  line-height: 1;
+}
+
+.checkoutLink {
+  display: flex;
+  align-items: center;
+}
+/* ------------------------ */
+
 .colorButton {
   height: 40px;
   width: 40px;
@@ -82,7 +110,7 @@
 
 /* Search Form Styles */
 .inputDiv {
-  flex: 0 1 400px;
+  flex: 0 1 350px;
 }
 
 .searchForm {
@@ -153,6 +181,7 @@
   transition: all 0.3s ease;
   z-index: 1000;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  display: block; 
 }
 
 .dropdown:hover .dropdownMenu {
@@ -198,14 +227,15 @@
   text-align: center;
 }
 
+/* Desktop defaults for Mobile Elements */
 .dropdownToggle {
+  display: none;
   background: none;
   border: none;
   cursor: pointer;
   padding: 4px;
   border-radius: 4px;
   transition: all 0.3s ease;
-  display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.8rem;
@@ -215,7 +245,6 @@
   background: rgba(255, 101, 170, 0.1);
 }
 
-/* Hamburger Menu */
 .hamburger {
   display: none;
   font-size: 2rem;
@@ -235,7 +264,6 @@
   border-color: rgba(255, 101, 170, 0.2);
 }
 
-/* Mobile Close Button */
 .mobileCloseButton {
   display: none;
   align-items: center;
@@ -255,7 +283,6 @@
   transform: translateY(-2px);
 }
 
-/* Menu Overlay */
 .menuOverlay {
   position: fixed;
   top: 0;
@@ -267,9 +294,24 @@
   display: none;
 }
 
-/* Responsive Styles */
+.linksWrap {
+  display: flex;
+}
 
-/* Desktop (1024px) */
+@keyframes dropdownSlide {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 80px;
+    opacity: 1;
+  }
+}
+
+/* =========================================
+   2. MEDIA QUERY: 1024px (Tablet Landscape)
+   ========================================= */
 @media (max-width: 1024px) {
   .headerWrap {
     justify-content: center;
@@ -288,7 +330,7 @@
   }
   
   .inputDiv {
-    flex: 0 1 300px;
+    flex: 0 1 250px;
   }
   
   .searchInput {
@@ -298,8 +340,24 @@
     padding: 10px 40px 10px 15px;
   }
   
+.searchButton {
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
   .searchInput::placeholder {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   
   .colorButton {
@@ -318,7 +376,9 @@
   }
 }
 
-/* Tablet (768px) */
+/* =========================================
+   3. MEDIA QUERY: 768px (Tablet Portrait)
+   ========================================= */
 @media (max-width: 768px) {
   .headerWrap {
     justify-content: space-between;
@@ -345,6 +405,7 @@
   
   .linksWrap {
     order: 3;
+    display: flex !important;
   }
   
   .searchInput {
@@ -384,85 +445,21 @@
     font-size: 0.9rem;
     padding: 6px 15px;
   }
-  
-  /* Hide hamburger on tablet - show all navigation */
-  .hamburger {
-    display: none;
-  }
-  
-  .linksWrap {
-    display: flex !important;
-  }
-}
 
-/* Mobile Menu Styles (425.6px and below) */
-@media (max-width: 426px) {
-  .headerWrap {
-    justify-content: space-between;
-    gap: 2rem;
-    height: 80px;
-    padding: 0 1rem;
-  }
-  
-  .imgWrap {
-    order: 1;
-  }
-  
-  .imgWrap img {
-    height: 40px;
-    width: 80px;
-  }
-  
-  .hamburger {
-    display: block;
-    order: 3;
-    font-size: 1.6rem;
-    position: relative;
-    right: 0;
-  }
-  
-  .inputDiv {
-    order: 2;
-    flex: 1;
-    margin: 0;
-  }
-  
-  .searchInput {
-    height: 30px;
-    width: 100%;
-    font-size: 0.85rem;
-    padding: 8px 35px 8px 15px;
-  }
-  
-  .searchInput::placeholder {
-    font-size: 0.8rem;
-  }
-  
-  .searchButton {
-    width: 28px;
-    height: 28px;
-    right: 5px;
-  }
-  
-  .searchButton svg {
-    width: 14px;
-    height: 14px;
-  }
-  
-  /* Hide regular navigation on mobile */
-  .linksWrap:not(.showMenu) {
-    display: none;
-  }
-}
-
-/* Mobile Menu Styles (768px and below - for hamburger menu) */
-@media (max-width: 768px) {
   .mobileCloseButton {
     display: flex;
   }
   
   .menuOverlay {
     display: block;
+  }
+
+  .dropdownHeader {
+    display: flex;
+  }
+
+  .dropdownToggle {
+    display: flex;
   }
   
   .linksWrap {
@@ -506,8 +503,11 @@
     text-align: center;
   }
   
+  /* Update link display for mobile to support badge */
   .linksWrap a {
-    display: block;
+    display: flex; /* Changed from block to flex for badge alignment */
+    align-items: center;
+    justify-content: center;
     padding: 16px 20px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     font-size: 1rem;
@@ -521,7 +521,6 @@
     display: none;
   }
   
-  /* Dropdown Styles for Mobile */
   .dropdown {
     width: 100%;
   }
@@ -604,7 +603,6 @@
     background: rgba(255, 101, 170, 0.1);
   }
   
-  /* Rotate chevron when dropdown is open */
   .dropdownToggle i {
     transition: transform 0.3s ease;
   }
@@ -614,7 +612,70 @@
   }
 }
 
-/* Mobile (375px and below) */
+/* =========================================
+   4. MEDIA QUERY: 426px (Large Mobile)
+   ========================================= */
+@media (max-width: 426px) {
+  .headerWrap {
+    justify-content: space-between;
+    gap: 0.5rem;
+    overflow: hidden;
+    height: 80px;
+  }
+  
+  .imgWrap {
+    order: 1;
+  }
+  
+  .imgWrap img {
+    height: 40px;
+    width: 80px;
+  }
+  
+  .hamburger {
+    display: block;
+    order: 3;
+    font-size: 1.6rem;
+    position: relative;
+    right: 0;
+  }
+  
+  .inputDiv {
+    order: 2;
+    flex: 1;
+    margin: 0;
+  }
+  
+  .searchInput {
+    height: 30px;
+    width: 200px;
+    font-size: 0.85rem;
+    padding: 8px 35px 8px 15px;
+  }
+  
+  .searchInput::placeholder {
+    font-size: 0.8rem;
+  }
+  
+  .searchButton {
+    width: 28px;
+    height: 28px;
+    right: 5px;
+  }
+  
+  .searchButton svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .linksWrap:not(.showMenu) {
+    display: none;
+  }
+}
+
+/* =========================================
+   5. MEDIA QUERY: 375px (Small Mobile)
+   ========================================= */
 @media (max-width: 375px) {
   .headerWrap {
     padding: 0.7rem 0.8rem;
@@ -650,7 +711,6 @@
     height: 12px;
   }
   
-  /* Mobile menu adjustments */
   .linksWrap ul {
     max-width: 250px;
   }
@@ -682,55 +742,5 @@
   
   .dropdownMenu.showDropdown {
     max-height: 70px;
-  }
-}
-
-/* Desktop Styles - Keep hover behavior */
-@media (min-width: 769px) {
-  .mobileCloseButton {
-    display: none;
-  }
-  
-  .menuOverlay {
-    display: none !important;
-  }
-  
-  .dropdownHeader {
-    display: block;
-  }
-  
-  .dropdownToggle {
-    display: none;
-  }
-  
-  .dropdownMenu {
-    display: block !important;
-  }
-  
-  .linksWrap {
-    display: block !important;
-  }
-}
-
-/* Show hamburger only on mobile (425.6px and below) */
-@media (min-width: 426px) {
-  .hamburger {
-    display: none;
-  }
-  
-  .linksWrap {
-    display: flex;
-  }
-}
-
-/* Animation for dropdown */
-@keyframes dropdownSlide {
-  from {
-    max-height: 0;
-    opacity: 0;
-  }
-  to {
-    max-height: 80px;
-    opacity: 1;
   }
 }

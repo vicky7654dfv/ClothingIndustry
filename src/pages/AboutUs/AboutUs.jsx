@@ -142,7 +142,7 @@ const buildingImages1 = [
 ];
 
   return (
-    <div data-aos="fade-up"
+    <div
       className={Style.aboutContainer}
     >
       {/* Section 1: Hero About Section */}

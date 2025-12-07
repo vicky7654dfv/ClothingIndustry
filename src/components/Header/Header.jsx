@@ -1,12 +1,16 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
-import Style from "../Header/Header.module.css";
+import Style from "./Header.module.css";
 import Img from "../../assets/Header/logo1.webp";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ThemeContext } from "../ThemeContext/ThemeContext";
 import { SearchContext } from "../SearchContext/SearchContext";
+// 1. IMPORT CART CONTEXT
+import { CartContext } from "../CartContext/CartContext";
 
 export default function Header() {
   const { theme, toggleTheme } = useContext(ThemeContext);
+  // 2. GET CART DATA
+  const { cart } = useContext(CartContext);
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const { searchTerm, setSearchTerm } = useContext(SearchContext);
@@ -49,7 +53,6 @@ export default function Header() {
     setDropdownOpen(false);
   };
 
-  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuOpen && 
@@ -76,7 +79,6 @@ export default function Header() {
     };
   }, [menuOpen]);
 
-  // Close menu when pressing Escape key
   useEffect(() => {
     const handleEscapeKey = (event) => {
       if (event.key === 'Escape' && menuOpen) {
@@ -94,7 +96,6 @@ export default function Header() {
 
   return (
     <div 
-      data-aos="fade"
       className={Style.headerWrap}
       style={{
         background: theme === "light" ? "#ebebebff" : "#474747ff",
@@ -102,12 +103,11 @@ export default function Header() {
       }}
     >
       <div className={Style.imgWrap}>
-        <a href="/">
+        <Link to="/">
           <img src={Img} alt="logo" />
-        </a>
+        </Link>
       </div>
       
-      {/* Hamburger/X Button */}
       <div 
         ref={hamburgerRef}
         className={Style.hamburger} 
@@ -159,7 +159,6 @@ export default function Header() {
         </form>
       </div>
 
-      {/* Navigation Menu */}
       <div 
         ref={menuRef}
         className={`${Style.linksWrap} ${menuOpen ? Style.showMenu : ""}`}
@@ -170,14 +169,14 @@ export default function Header() {
         <ul onClick={() => setMenuOpen(false)}>
           <li className={Style.dropdown}>
             <div className={Style.dropdownHeader}>
-              <a 
-                href={isHome2 ? "/" : "/HomePage2"} 
+              <Link 
+                to={isHome2 ? "/" : "/HomePage2"} 
                 onClick={handleMobileLinkClick}
                 className={Style.homePageLink}
                 style={{ color: theme === "light" ? "#474747ff" : "#ebebebff" }}
               >
                 {isHome2 ? "Home Page 2" : "Home Page"}
-              </a>
+              </Link>
               <button 
                 className={Style.dropdownToggle} 
                 onClick={toggleDropdown}
@@ -191,8 +190,8 @@ export default function Header() {
             </div>
             <ul className={`${Style.dropdownMenu} ${dropdownOpen ? Style.showDropdown : ''}`}>
               <li>
-                <a 
-                  href={isHome2 ? "/" : "/HomePage2"} 
+                <Link 
+                  to={isHome2 ? "/" : "/HomePage2"} 
                   onClick={handleHomePageNavigation}
                   style={{
                     color: theme === "light" ? "#474747ff" : "#ebebebff",
@@ -200,65 +199,72 @@ export default function Header() {
                   }}
                 >
                   {isHome2 ? "Home Page" : "Home Page 2"}
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
 
           <li>
-            <a
-              href="/AboutUs"
+            <Link
+              to="/AboutUs"
               onClick={handleMobileLinkClick}
               style={{ color: theme === "light" ? "#474747ff" : "#ebebebff" }}
             >
               About Us
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="/DashBoard"
+            <Link
+              to="/DashBoard"
               onClick={handleMobileLinkClick}
               style={{ color: theme === "light" ? "#474747ff" : "#ebebebff" }}
             >
               DashBoard
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="/Services"
+            <Link
+              to="/Services"
               onClick={handleMobileLinkClick}
               style={{ color: theme === "light" ? "#474747ff" : "#ebebebff" }}
             >
               Services
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="/FAQ"
+            <Link
+              to="/FAQ"
               onClick={handleMobileLinkClick}
               style={{ color: theme === "light" ? "#474747ff" : "#ebebebff" }}
             >
               FAQ
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="/Contact"
+            <Link
+              to="/Contact"
               onClick={handleMobileLinkClick}
               style={{ color: theme === "light" ? "#474747ff" : "#ebebebff" }}
             >
               Contact
-            </a>
+            </Link>
           </li>
+          
+          {/* 3. MODIFIED CHECKOUT LINK WITH BADGE */}
           <li>
-            <a
-              href="/Checkout"
+            <Link
+              to="/Checkout"
               onClick={handleMobileLinkClick}
+              className={Style.checkoutLink} // Added class for positioning
               style={{ color: theme === "light" ? "#474747ff" : "#ebebebff" }}
             >
               Checkout
-            </a>
+              {cart.length > 0 && (
+                <span className={Style.cartBadge}>{cart.length}</span>
+              )}
+            </Link>
           </li>
+
           <li>
             <button 
               className={Style.colorButton} 
@@ -272,17 +278,16 @@ export default function Header() {
             </button>
           </li>
           <li>
-            <a
-              href="/SignUp"
+            <Link
+              to="/SignUp"
               onClick={handleMobileLinkClick}
               style={{ color: theme === "light" ? "#474747ff" : "#ebebebff" }}
             >
               Sign Up
-            </a>
+            </Link>
           </li>
         </ul>
         
-        {/* Close Button for Mobile */}
         <div 
           className={Style.mobileCloseButton} 
           onClick={() => setMenuOpen(false)}
@@ -295,7 +300,6 @@ export default function Header() {
         </div>
       </div>
       
-      {/* Overlay for mobile when menu is open */}
       {menuOpen && <div className={Style.menuOverlay} onClick={() => setMenuOpen(false)}></div>}
     </div>
   );
