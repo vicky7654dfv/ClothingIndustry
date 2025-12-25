@@ -1,273 +1,614 @@
+/* =========================================
+   1. Base Styles & Layout
+   ========================================= */
+
 .fullWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  padding: 6rem 4rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Background Elements */
+.bgElements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bgCircle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, 
+    rgba(var(--accent-color-rgb, 255, 101, 170), 0.1), 
+    transparent 70%);
+}
+
+.bgCircle:nth-child(1) { width: 300px; height: 300px; top: 10%; left: 5%; }
+.bgCircle:nth-child(2) { width: 200px; height: 200px; bottom: 20%; right: 10%; }
+.bgCircle:nth-child(3) { width: 150px; height: 150px; top: 50%; left: 80%; }
+
+/* Row Container */
+.rowContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+.reverseRow { flex-direction: row-reverse; }
+
+/* Sides */
+.textSide {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  z-index: 2;
+  position: relative;
+}
+
+.visualSide {
+  flex: 1.2; /* Increased width share for visuals */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* =========================================
+   2. Enhanced Typography
+   ========================================= */
+
+.titleWrapper { position: relative; margin-bottom: 1rem; }
+
+.titleBadge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background-color: var(--accent-color);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  animation: badgePulse 2s infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.mainTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.1;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.titleUnderline {
+  height: 4px;
+  width: 80px;
+  background: linear-gradient(90deg, var(--accent-color), var(--secondary-accent, #4a90e2));
+  margin-top: 1rem;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.titleUnderline::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine { 0% { left: -100%; } 100% { left: 100%; } }
+
+.textContent { display: flex; flex-direction: column; gap: 2rem; }
+
+.para {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  font-weight: 300;
+  max-width: 90%;
+  position: relative;
+  padding-left: 1.5rem;
+  border-left: 3px solid var(--accent-color);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(var(--accent-color-rgb, 255, 101, 170), 0.1);
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.statItem:hover {
+  transform: translateY(-5px);
+  background: rgba(var(--accent-color-rgb, 255, 101, 170), 0.2);
+}
+
+.statNumber {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--accent-color);
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: 0.3rem;
+  text-align: center;
+}
+
+.featureList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem;
+  background: rgba(var(--secondary-accent-rgb, 74, 144, 226), 0.1);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.featureItem:hover {
+  background: rgba(var(--secondary-accent-rgb, 74, 144, 226), 0.2);
+  transform: translateX(5px);
+}
+
+.featureIcon { font-size: 1.2rem; }
+.featureText { font-size: 0.95rem; opacity: 0.9; }
+
+/* =========================================
+   3. Buttons & Interactive Elements
+   ========================================= */
+
+.btnWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.creativeBtn {
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, var(--accent-color), var(--secondary-accent, #4a90e2));
+  color: #fff;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  border: 2px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.creativeBtn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.creativeBtn:hover::before { left: 100%; }
+
+.creativeBtn:hover {
+  background: linear-gradient(135deg, var(--secondary-accent, #4a90e2), var(--accent-color));
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.textRotateBtn {
+  width: 45px; height: 45px;
+  border-radius: 50%;
+  background: rgba(var(--tertiary-accent-rgb, 80, 200, 120), 0.1);
+  border: 2px solid var(--tertiary-accent, #50c878);
+  color: var(--tertiary-accent, #50c878);
+  cursor: pointer;
+  font-size: 1.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
-  padding: 4rem 2rem;
-  background-color: #fdfdfd;
-  flex-wrap: wrap;
+  transition: all 0.3s ease;
 }
 
-.imgWrap {
-  flex: 1;
-  min-width: 300px;
-  max-width: 500px;
+.textRotateBtn:hover {
+  background: var(--tertiary-accent, #50c878);
+  color: white;
+  transform: rotate(180deg);
+  box-shadow: 0 0 15px rgba(80, 200, 120, 0.4);
 }
 
-.imgWrap iframe {
-  width: 100%;
-  height: 300px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px indianred;
+/* =========================================
+   4. Enhanced Connecting Wires
+   ========================================= */
+
+.wire {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, var(--wire-color), transparent);
+  height: 2px;
+  z-index: 1;
+  opacity: 0.6;
+  top: 50%;
+  transition: all 0.5s ease;
 }
 
-.textAreaWrap {
-  flex: 1;
-  min-width: 300px;
-  max-width: 600px;
+.wireRight {
+  left: calc(100% + 20px);
+  width: 120px;
+  transform-origin: left center;
+}
+
+.wireLeft {
+  right: calc(100% + 20px);
+  width: 120px;
+  transform-origin: right center;
+}
+
+.wire::before, .wire::after {
+  content: '';
+  position: absolute;
+  width: 8px; height: 8px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.wireRight::before { left: 0; }
+.wireRight::after { right: 0; }
+.wireLeft::before { left: 0; }
+.wireLeft::after { right: 0; }
+
+.wire::after { animation: dotPulse 2s infinite; }
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 0.5; transform: translateY(-50%) scale(1); }
+  50% { opacity: 1; transform: translateY(-50%) scale(1.2); }
+}
+
+.btnWrapper:hover .wire {
+  opacity: 1;
+  background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+/* =========================================
+   5. Enhanced Video Frames
+   ========================================= */
+
+.videoCard {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-}
-
-.textAreaWrap h2 {
-  font-size: 2.5rem;
-  color: #222;
-  margin-bottom: 1rem;
-}
-
-.textAreaWrap p {
-  font-size: 1.4rem;
-  color: #555;
-  line-height: 1.6;
-}
-
-.textAreaWrap button {
-  width: fit-content;
-  padding: 0.6rem 1.5rem;
-  background-color: indianred;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.textAreaWrap button:hover {
-  background-color: rgb(247, 101, 101);
-}
-
-.textAreaWrap button a {
-  color: #fff;
-  text-decoration: none;
-}
-
-/* Responsive for tablets */
-@media (max-width: 1024px){
-    .fullWrap {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  padding: 2rem 3rem;
-  background-color: #fdfdfd;
-  flex-wrap: wrap;
+  width: 100%; /* Ensure it takes available space */
 }
 
-.imgWrap {
-  flex: 1;
-  min-width: 300px;
-  max-width: 400px;
-}
-
-.imgWrap iframe {
+/* Bigger Horizontal Video Frame */
+.videoFrameHorizontal {
   width: 100%;
-  height: 250px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px indianred;
+  min-width: 500px; /* Minimum width constraint */
+  max-width: 800px; /* Increased max width */
+  aspect-ratio: 16/9;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+  position: relative;
+  border: 4px solid var(--card-bg);
+  background-color: #000;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  /* The size increase logic is mainly handled by the 'flex: 1.2' on visualSide */
 }
 
-.textAreaWrap {
-  flex: 1;
-  min-width: 300px;
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
+.videoFrameHorizontal:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: var(--accent-color);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.35);
 }
 
-.textAreaWrap h2 {
-  font-size: 2rem;
-  color: #222;
-  margin-bottom: 0.1rem;
-}
-
-.textAreaWrap p {
-  font-size: 1.2rem;
-  color: #555;
-  line-height: 1.5;
-}
-
-.textAreaWrap button {
-  width: fit-content;
-  padding: 0.6rem 1.5rem;
-  background-color: indianred;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  font-size: 1.2rem;
+/* Cover Photo Overlay */
+.coverOverlay {
+  width: 100%; height: 100%;
+  position: absolute; top: 0; left: 0;
   cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+
+.coverGradient {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+  z-index: 1;
   transition: all 0.3s ease;
 }
 
-.textAreaWrap button:hover {
-  background-color:  rgb(247, 101, 101);
+.coverOverlay:hover .coverGradient {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1));
 }
 
-.textAreaWrap button a {
-  color: #fff;
-  text-decoration: none;
+.coverContent {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 2rem; padding: 2rem;
+  text-align: center; max-width: 80%;
 }
 
+.playButton {
+  width: 100px; height: 100px; /* Bigger button */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
 }
-@media (max-width: 768px){
-    .fullWrap {
+
+.playPulse {
+  position: absolute; width: 100%; height: 100%;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  animation: pulseRing 2s infinite;
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+.playButton i {
+  color: white; font-size: 3rem; margin-left: 5px;
+  transition: all 0.3s ease;
+}
+
+.coverOverlay:hover .playButton {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: scale(1.1);
+}
+
+.coverOverlay:hover .playButton i { color: white; transform: scale(1.1); }
+
+.coverText { display: flex; flex-direction: column; gap: 0.8rem; }
+
+.videoBadge {
+  display: inline-block; padding: 0.4rem 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  font-size: 0.9rem; font-weight: 600;
+  letter-spacing: 1px; color: white;
+}
+
+.videoTitle {
+  font-size: 2.5rem; /* Larger Title */
+  font-weight: 700; color: white; margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.videoDescription {
+  font-size: 1.2rem; color: rgba(255, 255, 255, 0.9); margin: 0;
+}
+
+.videoMeta { display: flex; gap: 1.5rem; margin-top: 1rem; }
+
+.metaItem {
+  font-size: 1rem; color: rgba(255, 255, 255, 0.8);
+  display: flex; align-items: center; gap: 0.3rem;
+}
+
+/* Hover Effect */
+.hoverEffect {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none; opacity: 0; transition: opacity 0.3s ease;
+}
+
+.hoverEffect.active { opacity: 1; }
+
+.hoverGlow {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; height: 100%;
+  background: radial-gradient(circle at center, rgba(var(--accent-color-rgb, 255, 101, 170), 0.3) 0%, transparent 70%);
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse { 0% { opacity: 0.5; } 50% { opacity: 0.8; } }
+
+/* Bigger Video Info Box */
+.videoInfo {
+  display: flex; flex-direction: column; gap: 1rem;
+  background: var(--card-bg);
+  padding: 1.5rem; /* Increased padding */
+  border-radius: 15px;
+  width: 100%;
+  max-width: 800px; /* Match video width */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  font-size: 1.1rem; /* Larger text */
+}
+
+.infoRow {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(var(--text-color-rgb, 71, 71, 71), 0.1);
+}
+
+.infoRow:last-child { border-bottom: none; }
+
+.infoLabel { font-weight: 600; opacity: 0.8; }
+.infoValue { font-weight: 500; color: var(--accent-color); }
+
+.iframeVideo { width: 100%; height: 100%; display: block; border: none; }
+
+/* =========================================
+   6. Vertical Video (Phone Lookbook)
+   ========================================= */
+
+.phoneContainer {
+  position: relative;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  padding: 2rem 3rem;
-  background-color: #fdfdfd;
-  flex-wrap: wrap;
 }
 
-.imgWrap {
-  flex: 1;
-  min-width: 300px;
-  max-width: 450px;
+.videoFrameVertical {
+  width: 280px; height: 500px;
+  border-radius: 40px; overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.1);
+  position: relative;
+  border: 8px solid #1a1a1a; background: #000;
+  transform: rotate(-5deg);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
 }
 
-.imgWrap iframe {
-  width: 100%;
-  width: 550px;
-  height: 400px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px indianred;
-  transform: translateX(-3.5rem);
+.videoFrameVertical:hover {
+  transform: rotate(0deg) scale(1.08);
+  border-color: var(--accent-color);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 20px rgba(var(--accent-color-rgb, 255, 101, 170), 0.4);
 }
 
-.textAreaWrap {
-  flex: 1;
-  min-width: 300px;
-  max-width: 700px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
+.verticalVid { width: 100%; height: 100%; object-fit: cover; }
+
+/* Phone Details */
+.phoneNotch {
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 45%; height: 30px;
+  background-color: #1a1a1a;
+  border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;
+  z-index: 3;
 }
 
-.textAreaWrap h2 {
-  font-size: 1.8rem;
-  color: #222;
-  margin-bottom: 0.1rem;
+.phoneButtons {
+  position: absolute; right: -12px; top: 30%;
+  display: flex; flex-direction: column; gap: 10px;
+  z-index: 1;
 }
 
-.textAreaWrap p {
-  font-size: 1rem;
-  color: #555;
-  line-height: 1.1;
+.volumeUp, .volumeDown, .sideButton { width: 6px; background: #1a1a1a; }
+.volumeUp { height: 40px; border-radius: 3px; }
+.volumeDown { height: 40px; border-radius: 3px; }
+.sideButton { height: 60px; border-radius: 3px; margin-top: 30px; }
+
+.phoneScreenGlow {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(var(--accent-color-rgb, 255, 101, 170), 0.05), transparent);
+  pointer-events: none; z-index: 1;
 }
 
-.textAreaWrap button {
-  width: fit-content;
-  padding: 0.6rem 1rem;
-  background-color: indianred;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.phoneDecorations {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none; z-index: 1;
 }
 
-.textAreaWrap button:hover {
-  background-color:  rgb(247, 101, 101);
+.floatingElement {
+  position: absolute; width: 60px; height: 60px;
+  background: rgba(var(--secondary-accent-rgb, 74, 144, 226), 0.1);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
 }
 
-.textAreaWrap button a {
-  color: #fff;
-  text-decoration: none;
+.floatingElement:nth-child(1) { top: -20px; left: -20px; animation-delay: 0s; }
+.floatingElement:nth-child(2) { bottom: -20px; right: -20px; animation-delay: 2s; }
+.floatingElement:nth-child(3) { top: 50%; right: -30px; width: 40px; height: 40px; animation-delay: 4s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
 }
 
-}
-@media (max-width: 426px){
-    .fullWrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  padding: 2rem 3rem;
-  background-color: #fdfdfd;
-  flex-wrap: wrap;
+/* =========================================
+   Media Queries
+   ========================================= */
+
+@media (max-width: 1024px) {
+  .fullWrap { padding: 4rem 2rem; gap: 4rem; }
+  .rowContainer { gap: 2rem; }
+  .mainTitle { font-size: 2.5rem; }
+  .videoFrameVertical { height: 400px; width: 240px; }
+  .videoFrameHorizontal { min-width: unset; width: 100%; }
 }
 
-.imgWrap {
-  flex: 1;
-  min-width: 300px;
-  max-width: 410px;
+@media (max-width: 768px) {
+  .fullWrap { padding: 3rem 1.5rem; gap: 5rem; }
+  .rowContainer { flex-direction: column; text-align: center; }
+  .reverseRow { flex-direction: column; }
+  .textSide { align-items: center; order: 2; }
+  .visualSide { order: 1; width: 100%; }
+  .wire { display: none; }
+  .mainTitle { font-size: 2.2rem; text-align: center; }
+  .mainTitle::after { margin: 15px auto 0 auto; }
+  .para { text-align: center; padding-left: 0; border-left: none; max-width: 100%; }
+  .statsGrid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .featureList { grid-template-columns: 1fr; }
+  .videoFrameVertical { transform: rotate(0deg); width: 220px; height: 380px; }
 }
 
-.imgWrap iframe {
-  width: 100%;
-width: 350px;
-  height: 250px;
-    border-radius: 10px;
-  box-shadow: 0 4px 15px indianred;
-  transform: translateX(-0.5rem);
+@media (max-width: 425.6px) {
+  .mainTitle { font-size: 1.8rem; }
+  .creativeBtn { width: 100%; justify-content: center; }
+  .btnWrapper { flex-direction: column; align-items: center; }
+  .textRotateBtn { width: 40px; height: 40px; }
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+  .videoFrameVertical { width: 200px; height: 350px; }
+  .videoTitle { font-size: 1.8rem; }
+  .playButton{width: 40px; height: 30px; transform: translateY(20rem);}
 }
 
-.textAreaWrap {
-  flex: 1;
-  min-width: 300px;
-  max-width: 350px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.textAreaWrap h2 {
-  font-size: 1.5rem;
-  color: #222;
-  margin-bottom: 0.1rem;
-}
-
-.textAreaWrap p {
-  font-size: 1rem;
-  color: #555;
-  line-height: 1.3;
-}
-
-.textAreaWrap button {
-  width: fit-content;
-  padding: 0.6rem 1rem;
-  background-color: indianred;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.textAreaWrap button:hover {
-  background-color:  rgb(247, 101, 101);
-}
-
-.textAreaWrap button a {
-  color: #fff;
-  text-decoration: none;
-}
-
+@media (max-width: 375.2px) {
+  .fullWrap { padding: 2rem 1rem; }
+  .mainTitle { font-size: 1.6rem; }
+  .para { font-size: 0.9rem; }
+  .statsGrid { grid-template-columns: 1fr; }
+  .videoFrameVertical { width: 180px; height: 320px; }
 }

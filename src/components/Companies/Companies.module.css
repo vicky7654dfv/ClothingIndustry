@@ -1,75 +1,343 @@
-.clientListWrapper {
-  overflow: hidden;
+/* =========================================
+   Base Styles
+   ========================================= */
+
+.companiesWrap {
   width: 100%;
-  max-width: 100%;
+  min-height: 80vh; /* Reduced slightly to fit better */
+  padding: 6rem 0; /* Optimized vertical spacing */
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease, color 0.3s ease;
 }
-.clientsText {
-  margin: 2rem 0;
+
+/* Header Styles */
+.headerSection {
   text-align: center;
+  margin-bottom: 3rem; /* Adjusted spacing */
+  max-width: 800px;
+  padding: 0 1rem;
+}
+
+.gradientTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  /* Uses the solid color variable passed from JS */
+  color: var(--solid-color); 
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  position: relative;
+}
+
+.subtitle {
   font-size: 1.2rem;
-  font-weight: bold;
+  opacity: 0.8;
+  font-weight: 400;
+  margin-top: 0.5rem;
 }
-.clientsText h1{
-  padding-top: 1rem;
+
+/* Snake Path Section */
+.snakePathOuter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  margin-bottom: 5rem; /* Better separation between sections */
 }
+
+.snakePathLining {
+  width: 95%;
+  max-width: 1400px;
+  height: 140px;
+  border-top: 3px solid; /* Color handled inline */
+  border-bottom: 3px solid;
+  border-radius: 100px;
+  background: rgba(128, 128, 128, 0.05);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
 .clientList {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 6rem;
-  padding-bottom: 2rem;
-  animation: scroll-left 20s linear infinite;
+  gap: 6rem; /* Standardized gap */
+  will-change: transform;
+  animation: scroll-left 25s linear infinite;
+  padding: 0 3rem;
+  z-index: 1;
 }
+
+.client {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
 .client img {
-  height: 60px;
+  height: 75px;
+  object-fit: contain;
+  /* ADDED Border Radius */
+  border-radius: 12px; 
+  /* Ensure padding doesn't cut off if image hits edge */
+  padding: 5px; 
+  background: rgba(255,255,255,0.1); /* Subtle backing for dark mode visibility */
+  transition: transform 0.3s ease;
 }
-.clientsText2 h1{
-  text-align: center;
-  font-weight: bold;
-}
-@keyframes scroll-left {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-.clientList:hover {
+
+.snakePathLining:hover .clientList {
   animation-play-state: paused;
 }
-/* Responsive site */
 
-@media (max-width: 426px){
-.clientListWrapper {
-  overflow: hidden;
+.client:hover {
+  transform: scale(1.1);
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-100% / 2)); }
+}
+
+/* Industry Grid/Carousel Section */
+.industryGridContainer {
   width: 100%;
-  max-width: 100%;
-}
-.clientsText {
-  margin: 2rem 0;
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-.clientsText h1{
-  font-size: 1.5rem;
-  padding-top: 1rem;
-}
-.clientList {
+  max-width: 1000px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  gap: 3rem;
-  padding-bottom: 1rem;
-  animation: scroll-left 20s linear infinite;
+  padding: 0 2rem;
 }
-.client img {
-  height: 30px;
-}
-.clientsText2 h1{
+
+.gridHeader {
   text-align: center;
-  font-weight: bold;
-  font-size: 1.5rem;
+  margin-bottom: 2rem;
 }
+
+.gridHeader h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.gridSubtitle {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  margin-bottom: 1rem;
+}
+
+/* Carousel Navigation Dots */
+.carouselDots {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+  z-index: 10;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid var(--solid-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  opacity: 0.5;
+}
+
+.dot:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.activeDot {
+  background: var(--solid-color);
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Carousel Container */
+.carouselWrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  /* Optimized height to reduce empty space */
+  height: 450px; 
+}
+
+.carouselTrack {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  height: 100%;
+}
+
+/* Carousel Cards */
+.gridCard {
+  flex: 0 0 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  opacity: 0.5;
+  transform: scale(0.96);
+  transition: all 0.6s ease;
+}
+
+.activeCard {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.cardImageContainer {
+  flex: 1.2; /* Takes up slightly more space than content */
+  position: relative;
+  overflow: hidden;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.gridCard:hover .cardImage {
+  transform: scale(1.05);
+}
+
+.cardContent {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Center content */
+  text-align: center;
+}
+
+.cardContent h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.cardContent p {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.85;
+  margin-bottom: 1.5rem;
+  max-width: 90%;
+}
+
+/* Action Button */
+.actionBtn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border-radius: 50px;
+  border: 2px solid var(--solid-color);
+  color: var(--solid-color);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.actionBtn:hover {
+  background: var(--solid-color);
+  color: var(--inverse-text);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Carousel Controls - VISIBLE NOW */
+.carouselControls {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.carouselBtn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  /* Solid border for visibility */
+  border: 2px solid var(--solid-color); 
+  /* Slight background to make it pop */
+  background: rgba(128, 128, 128, 0.1); 
+  color: var(--solid-color);
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.carouselBtn:hover {
+  background: var(--solid-color);
+  color: var(--inverse-text);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(0,0,0,0.15);
+}
+
+/* =========================================
+   Media Queries
+   ========================================= */
+
+@media (max-width: 1024px) {
+  .snakePathLining { width: 90%; height: 120px; }
+  .client img { height: 60px; }
+  .carouselWrapper { height: 420px; }
+  .gridHeader h2 { font-size: 2.2rem; }
+}
+
+@media (max-width: 768px) {
+  .companiesWrap { padding: 5rem 0; }
+  .gradientTitle { font-size: 2.2rem; }
+  
+  .snakePathLining { 
+    width: 95%; 
+    height: 110px; 
+    border-radius: 60px; 
+    border-width: 2px;
+  }
+  
+  .clientList { gap: 4rem; }
+  .client img { height: 50px; }
+  
+  .carouselWrapper { height: 480px; }
+  .cardContent { padding: 1.5rem; }
+  .cardContent h3 { font-size: 1.5rem; }
+}
+
+@media (max-width: 425.6px) {
+  .gradientTitle { font-size: 1.8rem; }
+  .subtitle { font-size: 1rem; padding: 0 1rem; }
+  
+  .snakePathLining { height: 90px; border-radius: 45px; }
+  .clientList { gap: 3rem; }
+  .client img { height: 50px; border-radius: 8px; }
+  
+  .carouselWrapper { height: 450px; }
+  /* Stack image and text differently on small screens if needed */
+  .gridCard { justify-content: flex-start; }
+  .cardImageContainer { flex: 0 0 180px; }
+  .cardContent { flex: 1; padding: 1.2rem; }
+  
+  .carouselBtn { width: 45px; height: 45px; }
 }

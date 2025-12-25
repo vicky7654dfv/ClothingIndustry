@@ -1,119 +1,194 @@
-.bannerWrap{
-    margin-top: 80px;
-    width: 100%;
-    height: 568px;
+/* =========================================
+   Base Styles (Desktop / Default)
+   ========================================= */
+.bannerWrap {
+  margin-top: 80px;
+  width: 100%;
+  /* Standardized height */
+  height: 700px;
+  position: relative;
+  overflow: hidden;
+  /* Using Flexbox to center content perfectly instead of absolute positioning percentages */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.bannerWrap img{
-    width: 100%;
-    object-fit: cover;
+
+/* Video Background */
+.bgVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* The new creamy white overlay layer */
+.overlayLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Creamy white color with low opacity (0.4 looks good to hide quality issues) */
+  background-color: rgba(233, 255, 228, 0.25);
+  z-index: 1;
+  pointer-events: none; /* Allows clicks to pass through if needed */
+}
+
+/* Content Wrapper */
+.textWrap {
+  position: relative; /* Relative to the flex container */
+  z-index: 2; /* Above the overlay */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  /* Adjusted shadow for better contrast against lighter background */
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.textWrap h3 {
+  font-size: 4.5rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  /* Adjusted color to contrast better with creamy overlay */
+  color: #000000; 
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.textWrap p {
+  font-size: 1.5rem;
+  max-width: 700px;
+  margin-bottom: 2rem;
+  /* Darker text color for readability against light overlay */
+  color: #000000;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.textWrap button {
+  /* Optimized button styling */
+  background-color: #eab308; /* A nice gold color */
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.8rem 2.5rem;
+  border: none;
+  border-radius: 50px; /* Rounded corners look more modern */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.textWrap button:hover {
+  background-color: #000000;
+  color: #eab308;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+
+/* =========================================
+   Media Query: 1024px (Tablet Landscape)
+   ========================================= */
+@media (max-width: 1024px) {
+  .bannerWrap {
     height: 600px;
-    position: relative;
-}
-.textWrap{
-    position: absolute;
-    text-shadow: 0 0 5px goldenrod;
-    top: 35%;
-    left: 25%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.textWrap h3{
-    font-size: 5rem;
-    margin-bottom: 0.5rem;
-    color: rgb(139, 228, 231);
-}
-.textWrap p{
-    font-size: 2rem;
-    max-width: 800px;
-    margin-bottom: 0.5rem;
-    color: gold;
-    text-align: center;
-}
-.textWrap button{
-    background-color: navajowhite;
-    font-size: 2.2rem;
-    font-weight: bold;
-    padding: 1rem 2rem;
-    border-radius: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-}
-.textWrap button:hover{
-    background-color: black;
-    color: darkcyan;
+  }
 
-}
+  .textWrap h3 {
+    font-size: 3.5rem;
+    margin-bottom: 0.8rem;
+  }
 
-/* Responsive site */
-@media (max-width: 1024px){
-    .textWrap{
-    top: 35%;
-    left: 20%;
-}
-.textWrap h3{
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-}
-.textWrap p{
+  .textWrap p {
     font-size: 1.3rem;
     max-width: 600px;
-    margin-bottom: 0.5rem;
-}
-.textWrap button{
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 1rem 1rem;
-    border-radius: 1rem;
-}
+    margin-bottom: 1.5rem;
+  }
+
+  .textWrap button {
+    font-size: 1.1rem;
+    padding: 0.8rem 2.2rem;
+  }
 }
 
-@media (max-width: 768px){
-      .textWrap{
-    top: 45%;
-    left: 23%;
-}
-.textWrap h3{
-    font-size: 2rem;
+
+/* =========================================
+   Media Query: 768px (Tablet Portrait)
+   ========================================= */
+@media (max-width: 768px) {
+  .bannerWrap {
+    height: 450px;
+  }
+
+  .textWrap {
+    padding: 1.5rem;
+  }
+
+  .textWrap h3 {
+    font-size: 2.8rem;
     margin-bottom: 0.5rem;
-}
-.textWrap p{
+  }
+
+  .textWrap p {
     font-size: 1.1rem;
-    max-width: 400px;
-    margin-bottom: 0.5rem;
-}
-.textWrap button{
+    max-width: 450px;
+    margin-bottom: 1.5rem;
+  }
+
+  .textWrap button {
     font-size: 1rem;
-    font-weight: bold;
-    padding: 0.6rem 0.5rem;
-    border-radius: 1rem;
+    padding: 0.7rem 2rem;
+  }
 }
+
+
+/* =========================================
+   Media Query: 425.6px (Mobile Large)
+   ========================================= */
+@media (max-width: 426px) {
+  .bannerWrap {
+    height: 400px;
+  }
+
+  .textWrap h3 {
+    font-size: 2.2rem;
+    line-height: 1.1;
+  }
+
+  .textWrap p {
+    font-size: 1rem;
+    max-width: 320px;
+  }
+
+  .textWrap button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.8rem;
+  }
 }
-@media (max-width:426px){
-    .bannerWrap{
+
+
+/* =========================================
+   Media Query: 375.2px (Mobile Medium/Small)
+   ========================================= */
+@media (max-width: 376px) {
+    .bannerWrap {
         height: 380px;
     }
-    .bannerWrap img{
-        height: 420px;
+
+    .textWrap h3 {
+        font-size: 1.8rem;
     }
-    .textWrap{
-    top: 36%;
-    left: 15%;
-}
-.textWrap h3{
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-}
-.textWrap p{
-    font-size: 1rem;
-    max-width: 300px;
-    margin-bottom: 0.5rem;
-}
-.textWrap button{
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 0.4rem 0.5rem;
-    border-radius: 0.7rem;
-}
+
+    .textWrap p {
+        font-size: 0.95rem;
+        max-width: 280px;
+    }
 }

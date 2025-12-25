@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import Style from "./Grid1.module.css";
+// ... (Keep your existing Image imports here) ...
 import Img1 from "../../assets/Grid1/1.webp";
 import Img2 from "../../assets/Grid1/2.webp";
 import Img3 from "../../assets/Grid1/3.webp";
@@ -62,46 +63,100 @@ export default function Grid1() {
     { id: 25, img: Img25, brand: "Allen Solly", desc: "Yellow top and 3/4 pant", price: 3520 },
   ];
 
-const filteredProducts = products.filter(
-  (item) =>
-    item.brand.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.desc.toLowerCase().includes(searchTerm.toLowerCase())
-);
+  const filteredProducts = products.filter(
+    (item) =>
+      item.brand.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.desc.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const isLight = theme === "light";
+
+  // Dynamic Theme Colors
+  const pageStyle = {
+    background: isLight ? "#ebebebff" : "#474747ff",
+    color: isLight ? "#474747ff" : "#ebebebff",
+    transition: "background 0.3s ease, color 0.3s ease",
+  };
+
+  // Card Theme Vars
+  const cardVars = {
+    '--card-bg': isLight ? 'rgba(255, 255, 255, 0.65)' : 'rgba(92, 92, 92, 0.4)',
+    '--card-border': isLight ? 'rgba(255, 255, 255, 0.8)' : 'rgba(255, 255, 255, 0.1)',
+    '--text-primary': isLight ? '#474747' : '#ebebeb',
+    '--text-secondary': isLight ? '#666' : '#ccc',
+    '--glow-shadow': isLight ? '0 8px 32px rgba(31, 38, 135, 0.15)' : '0 8px 32px rgba(0, 0, 0, 0.3)',
+    '--glow-accent': isLight ? 'rgba(205, 92, 92, 0.4)' : 'rgba(205, 92, 92, 0.6)', // IndianRed glow
+  };
+
   return (
-    <>
-      <div
-        className={Style.gridWrap}
-        style={{
-          background: theme === "light" ? "#ebebebff" : "#474747ff",
-          color: theme === "light" ? "#474747ff" : "#ebebebff",
-        }}
-      >
-        
+    <div className={Style.pageContainer} style={pageStyle}>
+      
+      <div className={Style.headerContainer}>
+        <h1 className={Style.mainTitle}>New Arrivals</h1>
+        <p className={Style.subtitle}>Curated styles for the modern wardrobe</p>
+        <div className={Style.headerDivider}></div>
+      </div>
+
+      <div className={Style.gridWrap}>
         {filteredProducts.map((item) => {
           const cartItem = cart.find((p) => p.id === item.id);
+          
           return (
-            <div key={item.id} className={Style.gridPack}>
-            <img src={item.img} alt={item.brand} />
-            <h2>{item.brand}</h2>
-            <p>{item.desc}</p>
-            <h4>₹{item.price.toLocaleString("en-IN")}</h4>
-
-            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "10px", marginTop: 10 }}>
-              <button
-                onClick={() => removeFromCart(item)}
-                aria-label={`decrease ${item.brand}`}
-                disabled={!cartItem}
-              >
-                −
-              </button>
-              <span>{cartItem ? cartItem.qty : 0}</span>
-              <button onClick={() => addToCart(item)} aria-label={`increase ${item.brand}`}>+</button>
+            <div 
+              key={item.id} 
+              className={Style.gridPack}
+              style={cardVars}
+            >
+              {/* Image Section */}
+              <div className={Style.imageContainer}>
+                <div className={Style.imageOverlay}></div>
+                <img src={item.img} alt={item.brand} />
+                <div className={Style.brandBadge}>{item.brand}</div>
+              </div>
+              
+              {/* Details Section */}
+              <div className={Style.detailsContainer}>
+                <h2>{item.brand}</h2>
+                <p>{item.desc}</p>
+                
+                {/* Price is now always visible here */}
+                <h4 className={Style.priceText}>
+                  ₹{item.price.toLocaleString("en-IN")}
+                </h4>
+                
+                {/* Quantity Controls */}
+                <div className={Style.quantitySection}>
+                  <div className={Style.btnGroup}>
+                    <button
+                      onClick={() => removeFromCart(item)}
+                      aria-label={`decrease ${item.brand}`}
+                      disabled={!cartItem}
+                      className={Style.quantityBtn}
+                    >
+                      −
+                    </button>
+                    <span className={Style.quantityCount}>
+                      {cartItem ? cartItem.qty : 0}
+                    </span>
+                    <button 
+                      onClick={() => addToCart(item)} 
+                      aria-label={`increase ${item.brand}`}
+                      className={Style.quantityBtn}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
           );
         })}
       </div>
-      <hr />
-    </>
+
+      <div className={Style.gridFooter}>
+        <div className={Style.footerLine}></div>
+        <p className={Style.footerText}>Showing {filteredProducts.length} of {products.length} items</p>
+      </div>
+    </div>
   );
 }

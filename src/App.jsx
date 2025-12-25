@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import ThemeProvider from "./components/ThemeContext/ThemeContext";
@@ -30,7 +30,7 @@ function App() {
   }, []);
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <ThemeProvider>
           <CartProvider>
           <SearchProvider>
@@ -53,7 +53,7 @@ function App() {
           </CartProvider>
           <Footer />
         </ThemeProvider>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }

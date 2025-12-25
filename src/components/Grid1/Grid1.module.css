@@ -1,242 +1,306 @@
+/* =========================================
+   1. Base Styles (Desktop / Default)
+   ========================================= */
+
+.pageContainer {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0.9rem 0;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* --- Header Section --- */
+.headerContainer {
+  text-align: center;
+  margin-bottom: 5rem;
+  padding: 0 1rem;
+}
+
+.mainTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 1rem;
+  /* Glowing Text Effect */
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); 
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+
+.headerDivider {
+  width: 120px;
+  height: 4px;
+  background: indianred;
+  margin: 0 auto;
+  border-radius: 2px;
+  box-shadow: 0 0 10px indianred;
+}
+
+/* --- Grid Layout --- */
 .gridWrap {
   display: grid;
-  grid-template-rows: repeat(5, 1fr);
   grid-template-columns: repeat(5, 1fr);
-  gap: 3rem; /* spacing between grid items */
+  gap: 3rem; /* Corrected Breathing Space */
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+/* --- Card (Pack) Structure: The Glowing Glass Box --- */
+.gridPack {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+
+  /* Glassmorphism Props */
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--glow-shadow);
+}
+
+/* The Glow Effect behind the box */
+.gridPack::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 20px;
+  box-shadow: 0 0 30px var(--glow-accent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.gridPack:hover {
+  transform: translateY(-10px);
+  border-color: indianred;
+}
+
+.gridPack:hover::before {
+  opacity: 0.6; /* Activate Glow on Hover */
+}
+
+/* --- Image Section --- */
+.imageContainer {
+  width: 100%;
+  height: 280px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.gridPack img {
   width: 100%;
   height: 100%;
-  padding: 2rem;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.gridPack img{
-    width: 250px;
-    height: 280px;
-    border-radius: 1rem;
-    cursor: pointer;
-    transition: all 0.4s ease;
-    box-shadow: 0 0 10px indianred; /* soft pink glow */
 
+.gridPack:hover img {
+  transform: scale(1.1);
 }
-.gridPack {
-    font-size: 1rem;
+
+.brandBadge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: rgba(205, 92, 92, 0.9);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
-.gridPack img:hover{
-    transform: scale(1.02);
+
+/* --- Details Section --- */
+.detailsContainer {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: var(--text-primary);
 }
-hr {
-  border: none;
-  border-top: 10px solid #ccc;
-  margin: 0;
+
+.detailsContainer h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
 }
-.gridPack button {
+
+.detailsContainer p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  min-height: 40px;
+}
+
+/* Price Styling - Always Visible */
+.priceText {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: indianred;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 10px rgba(205, 92, 92, 0.2);
+}
+
+/* --- Controls --- */
+.quantitySection {
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.btnGroup {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(0,0,0,0.05);
+  padding: 5px 10px;
+  border-radius: 50px;
+  border: 1px solid var(--card-border);
+}
+
+.quantityBtn {
   background-color: indianred;
-  color: beige;
+  color: white;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
   font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.gridPack button:hover {
-  background-color: rgb(200, 80, 80);
-  transform: scale(1.05);
-}
-
-.gridPack button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.gridPack span {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: indianred;
-  min-width: 25px;
-  text-align: center;
-}
-
-/* Responsive site */
-@media (max-width: 1024px){
-  .gridWrap {
-  display: grid;
-  grid-template-rows: repeat(5, 1fr);
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  width: 100%;
-  height: 100%;
-  padding: 2rem;
-}
-.gridPack img{
-    width: 300px;
-    height: 280px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.4s ease;
-  }
-  .gridPack {
-    font-size: 1rem;
-    overflow: visible;
-  }
-.gridPack img:hover{
-    transform: scale(1.02);
-}
-hr {
-  border: none;
-  border-top: 10px solid #ccc;
-  margin: 0;
-}
-
-.gridPack button {
-  background-color: indianred;
-  color: beige;
-  border: none;
-  padding: 0.3rem 0.8rem;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.gridPack button:hover {
-  background-color: rgb(200, 80, 80);
-  transform: scale(1.05);
-}
-
-.gridPack button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.gridPack span {
-  font-size: 1rem;
-  font-weight: bold;
-  color: indianred;
-  min-width: 25px;
-  text-align: center;
-}
-}
-
-@media (max-width: 768px){
-  .gridWrap {
-  display: grid;
-  grid-template-rows: repeat(5, 1fr);
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  width: 100%;
-  height: 100%;
-  padding: 2rem;
-}
-.gridPack img{
-    width: 330px;
-    height: 330px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.4s ease;
-  }
-  .gridPack {
-    font-size: 1rem;
-    overflow: visible;
-  }
-.gridPack img:hover{
-    transform: scale(1.02);
-}
-hr {
-  border: none;
-  border-top: 10px solid #ccc;
-  margin: 0;
-}
-
-.gridPack button {
-  background-color: indianred;
-  color: beige;
-  border: none;
-  padding: 0.3rem 0.8rem;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.gridPack button:hover {
-  background-color: rgb(200, 80, 80);
-  transform: scale(1.05);
-}
-
-.gridPack button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.gridPack span {
-  font-size: 1rem;
-  font-weight: bold;
-  color: indianred;
-  min-width: 25px;
-  text-align: center;
-}
-}
-@media (max-width: 426px){
-  .gridWrap {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
-  padding: 1rem;
-}
-.gridPack img{
-    width: 275px;
-    height: 300px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.4s ease;
-  }
-  .gridPack {
-    font-size: 0.8rem;
-    padding-bottom: 1.5rem;
-  }
-.gridPack img:hover{
-    transform: scale(1.02);
-}
-hr {
-  border: none;
-  border-top: 10px solid #ccc;
-  margin: 0;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.gridPack button {
-  background-color: indianred;
-  color: beige;
-  border: none;
-  padding: 0.2rem 0.5rem;
-  border-radius: 8px;
-  font-size: 0.8rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.quantityBtn:hover:not(:disabled) {
+  background-color: rgb(220, 100, 100);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px indianred;
 }
 
-.gridPack button:hover {
-  background-color: rgb(200, 80, 80);
-  transform: scale(1.05);
-}
-
-.gridPack button:disabled {
-  opacity: 0.5;
+.quantityBtn:disabled {
+  background-color: #ccc;
   cursor: not-allowed;
+  box-shadow: none;
 }
 
-.gridPack span {
-  font-size: 0.8rem;
-  font-weight: bold;
-  color: indianred;
-  min-width: 25px;
+.quantityCount {
+  font-size: 1.3rem;
+  font-weight: 700;
+  min-width: 30px;
   text-align: center;
 }
+
+
+/* --- Footer --- */
+.gridFooter {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.footerLine {
+  width: 200px;
+  height: 2px;
+  background: indianred;
+  margin: 0 auto 1.5rem;
+  opacity: 0.5;
+}
+
+
+/* =========================================
+   2. Media Query: 1024px (Tablets / Laptops)
+   ========================================= */
+@media (max-width: 1024px) {
+  .gridWrap {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    padding: 0 2rem;
+  }
+  
+  .mainTitle { font-size: 3rem; }
+  .imageContainer { height: 250px; }
+  .priceText { font-size: 1.3rem; }
+}
+
+
+/* =========================================
+   3. Media Query: 768px (Tablets / Large Phones)
+   ========================================= */
+@media (max-width: 768px) {
+  .pageContainer { padding: 1rem 0; }
+  .headerContainer { margin-bottom: 3rem; }
+  .mainTitle { font-size: 2.5rem; }
+  
+  .gridWrap {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 0 1.5rem;
+  }
+  
+  .imageContainer { height: 300px; }
+  .detailsContainer { padding: 1.2rem; }
+}
+
+
+/* =========================================
+   4. Media Query: 425.6px (Large Mobile)
+   ========================================= */
+@media (max-width: 425.6px) {
+  .mainTitle { font-size: 2rem; }
+  .headerDivider { width: 80px; }
+  
+  .gridWrap {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    max-width: 380px;
+  }
+  
+  .imageContainer { height: 320px; }
+  
+  .gridPack:hover {
+    transform: translateY(-5px);
+  }
+}
+
+
+/* =========================================
+   5. Media Query: 375.2px (Medium/Small Mobile)
+   ========================================= */
+@media (max-width: 375.2px) {
+  .mainTitle { font-size: 1.8rem; }
+  .subtitle { font-size: 1rem; }
+  
+  .imageContainer { height: 280px; }
+  
+  .detailsContainer { padding: 1rem; }
+  .detailsContainer h2 { font-size: 1.1rem; }
+  
+  .quantityBtn { width: 30px; height: 30px; font-size: 1rem; }
+  .quantityCount { font-size: 1.1rem; }
 }

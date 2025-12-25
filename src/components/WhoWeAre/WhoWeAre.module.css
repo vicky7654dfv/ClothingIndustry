@@ -1,269 +1,283 @@
+/* =========================================
+   1. Base Styles (Desktop / Default)
+   ========================================= */
+
 .fullWrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14rem;
-  padding: 4rem 2rem;
-  background-color: #fdfdfd;
-  flex-wrap: wrap;
+  gap: 8rem;
+  padding: 6rem 4rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow: hidden;
 }
 
+/* --- Image Section & Hover Overlay --- */
 .imgWrap {
   flex: 1;
   min-width: 300px;
-  max-width: 500px;
+  max-width: 550px;
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
 
-.imgWrap img {
+.imgFrame {
+  position: relative;
   width: 100%;
   height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px indianred;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
+.imgFrame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Hover: Scale Image */
+.imgWrap:hover .imgFrame img {
+  transform: scale(1.1);
+}
+
+/* Overlay Styling */
+.personOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65); /* Dark transparent bg */
+  backdrop-filter: blur(4px); /* Glass blur effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* Hidden by default */
+  transition: all 0.4s ease;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Show Overlay on Hover */
+.imgWrap:hover .personOverlay {
+  opacity: 1;
+}
+
+/* Content Animation inside Overlay */
+.overlayContent {
+  transform: translateY(20px);
+  transition: transform 0.4s ease;
+  color: #fff; /* Always white text on overlay */
+}
+
+.imgWrap:hover .overlayContent {
+  transform: translateY(0);
+}
+
+.overlayContent h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.overlayContent span {
+  display: block;
+  font-size: 1rem;
+  color: var(--accent-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
+.overlayContent p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Profile Button inside Overlay */
+.profileBtn {
+  padding: 0.7rem 1.8rem;
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.profileBtn:hover {
+  background-color: #fff;
+  color: #000;
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(255,255,255,0.2);
+}
+
+/* --- Text Content Section --- */
 .textAreaWrap {
   flex: 1;
   min-width: 300px;
   max-width: 600px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 1.5rem;
 }
 
 .textAreaWrap h2 {
-  font-size: 2.5rem;
-  color: #222;
-  margin-bottom: 1rem;
+  font-size: 3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.divider {
+  width: 80px;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+  margin-bottom: 0.5rem;
 }
 
 .textAreaWrap p {
-  font-size: 1.4rem;
-  color: #555;
-  line-height: 1.6;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  opacity: 0.9;
+  font-weight: 400;
+  margin: 0;
 }
 
-.textAreaWrap button {
-  width: fit-content;
-  padding: 0.6rem 1.5rem;
-  background-color: #ff65aa;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.textAreaWrap button:hover {
-  background-color: #e05595;
-}
-
-.textAreaWrap button a {
-  color: #fff;
+/* Learn More Button Styling */
+.linkWrapper {
   text-decoration: none;
+  margin-top: 1rem;
 }
 
-/* Responsive for tablets */
-@media (max-width: 1024px){
-    .fullWrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5rem;
-  padding: 2rem 3rem;
-  background-color: #fdfdfd;
-  flex-wrap: wrap;
-}
-
-.imgWrap {
-  flex: 1;
-  min-width: 300px;
-  max-width: 400px;
-}
-
-.imgWrap img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px indianred;
-}
-
-.textAreaWrap {
-  flex: 1;
-  min-width: 300px;
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.textAreaWrap h2 {
-  font-size: 2rem;
-  color: #222;
-  margin-bottom: 0.1rem;
-}
-
-.textAreaWrap p {
-  font-size: 1.2rem;
-  color: #555;
-  line-height: 1.5;
-}
-
-.textAreaWrap button {
-  width: fit-content;
-  padding: 0.6rem 1.5rem;
-  background-color: #ff65aa;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.textAreaWrap button:hover {
-  background-color: #e05595;
-}
-
-.textAreaWrap button a {
-  color: #fff;
-  text-decoration: none;
-}
-
-}
-@media (max-width: 768px){
-    .fullWrap {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  padding: 2rem 3rem;
-  background-color: #fdfdfd;
-  flex-wrap: wrap;
-}
-
-.imgWrap {
-  flex: 1;
-  min-width: 300px;
-  max-width: 450px;
-}
-
-.imgWrap img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px indianred;
-}
-
-.textAreaWrap {
-  flex: 1;
-  min-width: 300px;
-  max-width: 700px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.textAreaWrap h2 {
-  font-size: 1.8rem;
-  color: #222;
-  margin-bottom: 0.1rem;
-}
-
-.textAreaWrap p {
+.learnBtn {
+  padding: 0.9rem 2.5rem;
+  background-color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+  border-radius: 50px;
+  color: var(--button-text);
   font-size: 1rem;
-  color: #555;
-  line-height: 1.3;
-}
-
-.textAreaWrap button {
-  width: fit-content;
-  padding: 0.6rem 1.5rem;
-  background-color: #ff65aa;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.textAreaWrap button:hover {
-  background-color: #e05595;
+.learnBtn:hover {
+  background-color: transparent;
+  color: var(--text-color);
+  border-color: var(--text-color);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-.textAreaWrap button a {
-  color: #fff;
-  text-decoration: none;
+
+/* =========================================
+   2. Media Query: 1024px (Tablets / Laptops)
+   ========================================= */
+@media (max-width: 1024px) {
+  .fullWrap {
+    gap: 4rem;
+    padding: 4rem 3rem;
+  }
+
+  .textAreaWrap h2 { font-size: 2.5rem; }
+  .textAreaWrap p { font-size: 1.05rem; }
+  .imgWrap { max-width: 450px; }
+  
+  .overlayContent h3 { font-size: 1.8rem; }
 }
 
-}
-@media (max-width: 426px){
-    .fullWrap {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  padding: 2rem 3rem;
-  background-color: #fdfdfd;
-  flex-wrap: wrap;
+
+/* =========================================
+   3. Media Query: 768px (Tablets / Large Phones)
+   ========================================= */
+@media (max-width: 768px) {
+  .fullWrap {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+    padding: 3rem 2rem;
+  }
+
+  .textAreaWrap {
+    align-items: center;
+    max-width: 100%;
+  }
+
+  .imgWrap {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .imgFrame { max-height: 400px; }
+  
+  .textAreaWrap h2 { font-size: 2.2rem; }
+  .divider { margin: 0 auto 0.5rem auto; }
 }
 
-.imgWrap {
-  flex: 1;
-  min-width: 300px;
-  max-width: 450px;
+
+/* =========================================
+   4. Media Query: 425.6px (Mobile Large)
+   ========================================= */
+@media (max-width: 425.6px) {
+  .fullWrap {
+    padding: 2.5rem 1.5rem;
+    gap: 2.5rem;
+  }
+
+  .textAreaWrap h2 { font-size: 1.8rem; }
+  .textAreaWrap p { font-size: 0.95rem; line-height: 1.6; }
+
+  .learnBtn {
+    width: 100%;
+    padding: 0.8rem 2rem;
+  }
+  
+  .imgFrame { max-height: 350px; }
+  
+  /* Compact Overlay for Mobile */
+  .overlayContent h3 { font-size: 1.5rem; }
+  .overlayContent p { font-size: 0.85rem; max-width: 95%; }
+  .profileBtn { padding: 0.6rem 1.5rem; font-size: 0.8rem; }
 }
 
-.imgWrap img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px indianred;
-}
 
-.textAreaWrap {
-  flex: 1;
-  min-width: 300px;
-  max-width: 350px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
+/* =========================================
+   5. Media Query: 375.2px (Mobile Small)
+   ========================================= */
+@media (max-width: 375.2px) {
+  .fullWrap {
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
 
-.textAreaWrap h2 {
-  font-size: 1.5rem;
-  color: #222;
-  margin-bottom: 0.1rem;
-}
-
-.textAreaWrap p {
-  font-size: 0.9rem;
-  color: #555;
-  line-height: 1.3;
-}
-
-.textAreaWrap button {
-  width: fit-content;
-  padding: 0.6rem 1.5rem;
-  background-color: #ff65aa;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.textAreaWrap button:hover {
-  background-color: #e05595;
-}
-
-.textAreaWrap button a {
-  color: #fff;
-  text-decoration: none;
-}
-
+  .textAreaWrap h2 { font-size: 1.6rem; }
+  .textAreaWrap p { font-size: 0.9rem; }
+  
+  .learnBtn { font-size: 0.9rem; padding: 0.7rem 1.5rem; }
 }

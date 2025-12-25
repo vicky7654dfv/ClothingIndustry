@@ -1,80 +1,157 @@
-/* --- Global / Desktop Styles --- */
+/* =========================================
+   1. Base Styles (Desktop / Default)
+   ========================================= */
+
+:root {
+  /* Hover Accent Color */
+  --hover-color: #94a3b8; 
+}
+
 .footerWrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  font-size: 1.2rem;
-  padding: 3rem;
+  display: grid;
+  /* 5 Columns Layout */
+  grid-template-columns: 1.4fr 0.8fr 0.8fr 1.2fr 1fr;
+  gap: 2rem; 
+  padding: 5rem 3rem;
   overflow: hidden;
+  transition: all 0.3s ease;
+  align-items: start;
+}
+
+/* Box & Layout */
+.box {
+  display: flex;
+  flex-direction: column;
 }
 
 .box img {
-  height: 50px;
+  height: 45px;
+  object-fit: contain;
+  align-self: flex-start;
+  margin-bottom: 1.5rem;
 }
 
-.box button {
-  font-size: 1.2rem;
-  padding: 0.5rem 1rem;
-  background-color: indianred;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: none;
+.paraStyle {
+  margin: 0.5rem 0 1.5rem 0;
+  line-height: 1.7;
+  font-weight: 400;
+  font-size: 1rem;
+  opacity: 0.9;
+  letter-spacing: 0.2px;
+  max-width: 95%;
+}
+
+/* Title Styling */
+.titleBorder {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  padding: 8px 12px;
+  border: 2px solid currentColor; /* Adapts to theme text color */
   border-radius: 4px;
-  color: white;
-  margin-top: 10px;
-}
-
-.box button:hover {
-  background-color: burlywood;
-}
-
-.box p {
-  max-width: 350px;
-  margin: 1rem 0;
-  line-height: 1.5;
-}
-
-.box h4 {
-  margin-bottom: 15px;
-  font-weight: bold;
-}
-
-.box ul {
+  transition: all 0.3s ease;
+  width: fit-content;
   color: inherit;
+  opacity: 0.9;
+}
+
+/* Title Hover: Transparent BG, Colored Text/Border */
+.box:hover .titleBorder {
+  background-color: transparent; 
+  border-color: var(--hover-color);
+  color:  rgb(0, 0, 0);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+/* Links & Lists */
+.box ul {
   list-style: none;
   padding: 0;
 }
 
 .box li {
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.box a {
-  position: relative;
-  color: inherit;
+/* Text Link Styling */
+.navLink {
   text-decoration: none;
-  transition: color 0.3s ease;
+  color: inherit;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: inline-block;
+  opacity: 0.85;
+  font-size: 0.95rem;
+  padding: 6px 14px;
+  border: 1px solid transparent; 
+  border-radius: 8px;
+  position: relative;
+  left: -14px; 
 }
 
-.box a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 0;
-  height: 2px;
-  background-color: indianred;
-  transition: width 0.3s ease;
+/* Link Hover */
+.navLink:hover {
+  color: var(--hover-color);
+  opacity: 1;
+  border-color: var(--hover-color); 
+  background-color: transparent; 
+  transform: translateX(10px); 
+  font-weight: 600;
 }
 
-.box a:hover {
-  color: indianred;
+.btnWrapperLink {
+  text-decoration: none !important;
+  border: none !important;
+  display: inline-block;
+}
+.btnWrapperLink::after {
+  display: none !important;
 }
 
-.box a:hover::after {
-  width: 100%;
+/* Button Styling */
+.learnMoreBtn {
+  font-size: 0.95rem;
+  padding: 0.8rem 1.8rem;
+  background-color: transparent;
+  border: 2px solid currentColor; 
+  border-radius: 50px;
+  color: rgb(183, 107, 255);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Button Hover */
+.learnMoreBtn:hover {
+  background-color: transparent; 
+  border-color: var(--hover-color);
+  color: var(--hover-color) !important; 
+  box-shadow: 0 5px 15px rgba(148, 163, 184, 0.2);
+  transform: translateY(-3px);
+  gap: 15px;
+}
+
+/* Regular text in HQ section */
+.infoList span {
+  font-size: 1rem;
+  line-height: 2.5rem;
+  opacity: 0.9;
+}
+
+/* Social Media Icons */
 .media {
   display: flex;
   justify-content: flex-start;
@@ -84,81 +161,152 @@
 
 .media a {
   font-size: 1.5rem;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  padding: 0;
+  border: none;
+  width: auto;
+  height: auto;
+  text-decoration: none;
+  color: inherit;
 }
 
+.media a::after {
+  display: none;
+}
+
+.media a:hover {
+  transform: translateY(-3px);
+  color: var(--hover-color) !important;
+  opacity: 1;
+  background-color: transparent;
+}
+
+/* Bottom Copyright Section */
 .bottomFooter {
-  margin-top: -10px;
   text-align: center;
-  padding-bottom: 10px;
+  padding-bottom: 2rem;
 }
 
 .bottomFooter p {
-  font-size: 1.1rem;
+  font-size: 1rem;
+  opacity: 0.9;
 }
 
 .bottomFooter hr {
   border: none;
-  border-top: 1px solid #ccc;
-  margin: 10px 0;
-  opacity: 0.5;
+  border-top: 2px solid currentColor;
+  opacity: 0.2;
+  margin: 0 0 1.5rem 0;
+  width: 100%;
 }
 
-/* --- Tablet Responsive (1024px) --- */
+
+/* =========================================
+   2. Media Query: 1024px (Tablets / Laptops)
+   ========================================= */
 @media (max-width: 1024px) {
   .footerWrap {
-    font-size: 1rem;
-    padding: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 3rem 2rem;
+    gap: 2.5rem;
   }
-  .box img { height: 30px; }
-  .box button { font-size: 0.9rem; padding: 0.4rem 0.8rem; }
-  .box p { max-width: 200px; }
-  .media { gap: 1rem; }
-  .bottomFooter p { font-size: 1rem; }
+
+  .box:nth-child(1) {
+    grid-column: span 3;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .box:nth-child(1) img {
+    align-self: center;
+  }
+
+  .box:nth-child(5) {
+    grid-column: span 3;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .media {
+    justify-content: center;
+  }
+
+  .box img { height: 40px; }
+  .titleBorder { font-size: 1rem; }
+  .paraStyle { font-size: 0.9rem; max-width: 600px; }
 }
 
-/* --- Tablet Small (768px) --- */
+
+/* =========================================
+   3. Media Query: 768px (Tablets / Large Phones)
+   ========================================= */
 @media (max-width: 768px) {
   .footerWrap {
-    font-size: 0.8rem;
-    padding: 1.5rem;
+    grid-template-columns: repeat(2, 1fr); 
+    padding: 3rem 1.5rem;
+    gap: 3rem 1.5rem;
   }
-  .box img { height: 25px; }
-  .box button { font-size: 0.7rem; padding: 0.3rem 0.7rem; }
-  .box p { max-width: 100%; padding-right: 10px; }
-  .media { gap: 0.8rem; }
-  .bottomFooter p { font-size: 0.8rem; }
+
+  .box:nth-child(1) {
+    grid-column: span 2;
+  }
+
+  .box:nth-child(5) {
+    grid-column: span 2;
+  }
+
+  .box img { height: 35px; }
 }
 
-/* --- Mobile Responsive (426px & below) --- */
-@media (max-width: 426px) {
+
+/* =========================================
+   4. Media Query: 425.6px (Mobile Large)
+   ========================================= */
+@media (max-width: 425.6px) {
   .footerWrap {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    grid-template-columns: 1fr;
+    padding: 2.5rem 1.5rem;
     gap: 2.5rem;
+  }
+
+  .box:nth-child(1), .box:nth-child(5) {
+    grid-column: span 1;
     align-items: flex-start;
-    font-size: 0.95rem;
-    padding: 2rem 1.5rem;
+    text-align: left;
   }
-  .box { width: 100%; }
-  .box img { height: 40px; }
-  .box button {
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-    width: 100%;
-    max-width: 250px;
+  
+  .box:nth-child(1) img { align-self: flex-start; }
+  .media { justify-content: flex-start; }
+
+  .paraStyle { max-width: 100%; }
+  .learnMoreBtn { width: 100%; justify-content: center; }
+  .media { gap: 1.2rem; }
+  .bottomFooter { padding: 0 1.5rem 1.5rem 1.5rem; }
+  
+  .navLink { left: 0; padding: 6px 12px; }
+  .navLink:hover { transform: translateX(5px); padding-left: 10px; }
+}
+
+
+/* =========================================
+   5. Media Query: 375.2px (Mobile Small)
+   ========================================= */
+@media (max-width: 375.2px) {
+  .footerWrap {
+    padding: 2rem 1rem;
+    gap: 2rem;
   }
-  .box p {
+
+  .box img { height: 30px; }
+  .titleBorder { font-size: 1rem; padding: 6px 10px; }
+  
+  .paraStyle, .navLink, .infoList span {
     font-size: 1rem;
-    max-width: 100%;
-    margin: 0.8rem 0;
   }
-  .box h4 { font-size: 1.2rem; margin-bottom: 12px; }
-  .box ul { font-size: 1rem; }
-  .box li { margin-bottom: 12px; }
-  .box a { font-size: 1rem; }
-  .media a { font-size: 1.4rem; }
-  .media { gap: 1.2rem; margin-top: 10px; }
-  .bottomFooter { padding: 0 1rem 20px 1rem; }
-  .bottomFooter p { font-size: 0.8rem; line-height: 1.4; }
+
+  .bottomFooter p {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
 }
