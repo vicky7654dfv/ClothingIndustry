@@ -7,7 +7,6 @@ import { ThemeContext } from "../../components/ThemeContext/ThemeContext.jsx";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Checkout() {
-  // 1. Get all necessary functions from Context
   const { cart, total, clearCart, addToCart, removeFromCart, setQuantity } = useContext(CartContext);
   const { theme } = useContext(ThemeContext);
   const navigate = useNavigate();
@@ -26,43 +25,51 @@ export default function Checkout() {
           color: theme === "light" ? "#474747ff" : "#ebebebff",
         }}
       >
-        <h1 style={{ color: "indianred", paddingBottom: "10px" }}>Checkout</h1>
+        <div className={Style.headerSection}>
+          <h1 className={Style.pageTitle}>Your Shopping Bag</h1>
+          <p className={Style.pageSubtitle}>Review your items and proceed to secure checkout</p>
+        </div>
 
         {cart.length === 0 ? (
           <div className={Style.noItemWrap}>
-            <video src={Vid} autoPlay loop muted playsInline></video>
-            <img src={Img1} alt="" />
-            <h4>
-              No items in cart. It looks like you haven’t added anything yet.
-              Browse through our latest collections and add your favorite
-              products to proceed with checkout.
-            </h4>
-            <div className={Style.btnWrapper}>
-              <Link to="/" className={Style.getItNowBtn}>
-                Get it Now
-              </Link>
+            <video src={Vid} autoPlay loop muted playsInline className={Style.bgVideo}></video>
+            
+            <div className={Style.emptyCartContent}>
+              <div className={Style.imageContainer}>
+                <img src={Img1} alt="Empty Cart" />
+              </div>
+              
+              <div className={Style.textContainer}>
+                <h2 className={Style.emptyTitle}>Your Cart is Feeling Light</h2>
+                <h4 className={Style.emptyDesc}>
+                  It looks like you haven’t added anything yet. 
+                  Browse through our latest collections and find something that speaks to your style.
+                </h4>
+                <div className={Style.btnWrapper}>
+                  <Link to="/" className={Style.getItNowBtn}>
+                    Start Shopping
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         ) : (
           <div className={Style.itemWrap}>
-            <video src={Vid} autoPlay loop muted playsInline></video>
+            <video src={Vid} autoPlay loop muted playsInline className={Style.bgVideo}></video>
             <div className={Style.itemBox}>
               
-              {/* Scrollable list of items */}
               <div className={Style.scrollableList}>
                 {cart.map((item) => (
                   <div key={item.id} className={Style.items}>
                     
-                    {/* Item Info (Brand, Desc, Price) */}
                     <div className={Style.itemInfo}>
                       <strong className={Style.str1}>{item.brand}</strong>
                       <span className={Style.str2}>{item.desc}</span>
                       <span className={Style.priceText}>
-                         ₹{(item.price * item.qty).toLocaleString("en-IN")}
+                          ₹{(item.price * item.qty).toLocaleString("en-IN")}
                       </span>
                     </div>
 
-                    {/* Controls (+, -, x) */}
                     <div className={Style.controls}>
                       <div className={Style.qtyHandler}>
                         <button 
@@ -80,7 +87,6 @@ export default function Checkout() {
                         </button>
                       </div>
 
-                      {/* Remove Button (X) */}
                       <button 
                         className={Style.removeBtn} 
                         onClick={() => setQuantity(item.id, 0)}
@@ -94,9 +100,11 @@ export default function Checkout() {
                 ))}
               </div>
               
-              {/* Footer with Total and Place Order Button */}
               <div className={Style.checkoutFooter}>
-                <h3 className={Style.total}>Total: ₹{Number(total).toLocaleString("en-IN")}</h3>
+                <div className={Style.totalSection}>
+                  <span className={Style.totalLabel}>Grand Total</span>
+                  <h3 className={Style.total}>₹{Number(total).toLocaleString("en-IN")}</h3>
+                </div>
                 <button 
                   className={Style.placeOrderBtn} 
                   onClick={handlePlaceOrder}

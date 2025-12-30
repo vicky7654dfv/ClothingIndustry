@@ -268,61 +268,7 @@
 }
 
 /* =========================================
-   4. Enhanced Connecting Wires
-   ========================================= */
-
-.wire {
-  position: absolute;
-  background: linear-gradient(90deg, transparent, var(--wire-color), transparent);
-  height: 2px;
-  z-index: 1;
-  opacity: 0.6;
-  top: 50%;
-  transition: all 0.5s ease;
-}
-
-.wireRight {
-  left: calc(100% + 20px);
-  width: 120px;
-  transform-origin: left center;
-}
-
-.wireLeft {
-  right: calc(100% + 20px);
-  width: 120px;
-  transform-origin: right center;
-}
-
-.wire::before, .wire::after {
-  content: '';
-  position: absolute;
-  width: 8px; height: 8px;
-  background: var(--accent-color);
-  border-radius: 50%;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.wireRight::before { left: 0; }
-.wireRight::after { right: 0; }
-.wireLeft::before { left: 0; }
-.wireLeft::after { right: 0; }
-
-.wire::after { animation: dotPulse 2s infinite; }
-
-@keyframes dotPulse {
-  0%, 100% { opacity: 0.5; transform: translateY(-50%) scale(1); }
-  50% { opacity: 1; transform: translateY(-50%) scale(1.2); }
-}
-
-.btnWrapper:hover .wire {
-  opacity: 1;
-  background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
-  box-shadow: 0 0 10px var(--accent-color);
-}
-
-/* =========================================
-   5. Enhanced Video Frames
+   4. Video Frames
    ========================================= */
 
 .videoCard {
@@ -491,7 +437,7 @@
 .iframeVideo { width: 100%; height: 100%; display: block; border: none; }
 
 /* =========================================
-   6. Vertical Video (Phone Lookbook)
+   5. Vertical Video (Phone Lookbook)
    ========================================= */
 
 .phoneContainer {
@@ -585,7 +531,6 @@
   .reverseRow { flex-direction: column; }
   .textSide { align-items: center; order: 2; }
   .visualSide { order: 1; width: 100%; }
-  .wire { display: none; }
   .mainTitle { font-size: 2.2rem; text-align: center; }
   .mainTitle::after { margin: 15px auto 0 auto; }
   .para { text-align: center; padding-left: 0; border-left: none; max-width: 100%; }

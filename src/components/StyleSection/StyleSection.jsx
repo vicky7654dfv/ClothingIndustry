@@ -19,7 +19,6 @@ export default function StyleSection() {
     "--text-color": isLight ? "#474747" : "#ebebeb",
     "--card-bg": isLight ? "#ffffff" : "#333333",
     "--accent-color": isLight ? "#ff65aa" : "#ff4081",
-    "--wire-color": isLight ? "#555" : "#ccc",
     "--secondary-accent": isLight ? "#4a90e2" : "#64b5f6",
     "--tertiary-accent": isLight ? "#50c878" : "#81c784",
   };
@@ -129,7 +128,6 @@ export default function StyleSection() {
             >
               🔄
             </button>
-            <div className={`${Style.wire} ${Style.wireRight}`}></div>
           </div>
         </div>
 
@@ -273,7 +271,6 @@ export default function StyleSection() {
             <Link to="/Error" className={Style.creativeBtn}>
               <span>{currentText.lookbookBtn}</span>
             </Link>
-            <div className={`${Style.wire} ${Style.wireLeft}`}></div>
           </div>
         </div>
       </div>

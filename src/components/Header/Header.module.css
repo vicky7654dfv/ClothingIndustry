@@ -1,5 +1,3 @@
-/* Header.module.css */
-
 /* =========================================
    1. NORMAL CSS (Global / Desktop Defaults)
    ========================================= */
@@ -80,80 +78,6 @@
   align-items: center;
   gap: 0.5rem;
   margin-left: auto;
-}
-
-/* Search Container */
-.searchContainer {
-  flex: 0 1 350px;
-  margin-right: 1rem;
-}
-
-.searchForm {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.searchInput {
-  padding: 12px 10px 12px 10px;
-  border-radius: 30px;
-  width: 100%;
-  width: 250px;
-  font-size: 0.9rem;
-  outline: none;
-  transition: all 0.3s ease;
-  /* Light Theme Search Input */
-  background: rgba(245, 245, 245, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: #333;
-  font-weight: 500;
-}
-
-.searchInput:focus {
-  border-color: rgba(220, 38, 38, 0.3);
-  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
-  background: #ffffff;
-  transform: translateY(-1px);
-}
-
-.searchInput::placeholder {
-  color: #666;
-  font-size: 1rem;
-  opacity: 0.7;
-  font-weight: 500;
-}
-
-.header[data-theme="dark"] .searchInput {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: #e5e5e5;
-}
-
-.header[data-theme="dark"] .searchInput::placeholder {
-  color: #999;
-}
-
-.searchButton {
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  border: none;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  background: linear-gradient(135deg, #dc2626, #ef4444);
-  color: white;
-}
-
-.searchButton:hover {
-  transform: translateY(-50%) scale(1.1);
-  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
 }
 
 /* Home Dropdown */
@@ -474,54 +398,6 @@
   to { opacity: 1; }
 }
 
-/* Mobile Search */
-.mobileSearchContainer {
-  width: 100%;
-  margin-bottom: 2rem;
-}
-
-.mobileSearchForm {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.mobileSearchInput {
-  padding: 14px 50px 14px 20px;
-  border-radius: 30px;
-  width: 100%;
-  font-size: 1rem;
-  outline: none;
-  transition: all 0.3s ease;
-  background: rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  color: #333;
-  font-weight: 500;
-}
-
-.header[data-theme="dark"] .mobileSearchInput {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.1);
-  color: #e5e5e5;
-}
-
-.mobileSearchButton {
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  border: none;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #dc2626, #ef4444);
-  color: white;
-}
-
 /* Mobile Home Section */
 .mobileHomeSection {
   width: 100%;
@@ -697,17 +573,6 @@
     font-size: 0.9rem;
   }
   
-  .searchContainer {
-    flex: 0 1 160px;
-    margin-right: 0.5rem;
-  }
-
-  .searchInput {
-    padding: 10px 40px 10px 15px;
-    font-size: 0.95rem;
-    width: 155px;
-  }
-
   .logo {
     height: 35px;
   }
@@ -775,11 +640,6 @@
     padding: 1rem;
   }
   
-  .mobileSearchContainer {
-    width: 100%;
-    margin-bottom: 0.2rem;
-  }
-
   .logo {
     height: 35px;
   }
@@ -805,11 +665,6 @@
     left: 0.75rem;
     right: 0.75rem;
     padding: 1.1rem;
-  }
-
-  .mobileSearchInput {
-    padding: 12px 45px 12px 15px;
-    font-size: 0.95rem;
   }
 
   .mobileNavLink {
@@ -861,11 +716,6 @@
     right: 0.5rem;
     padding: 1rem;
     border-radius: 16px;
-  }
-
-  .mobileSearchInput {
-    padding: 10px 40px 10px 12px;
-    font-size: 0.9rem;
   }
 
   .mobileNavLink {

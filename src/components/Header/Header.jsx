@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ThemeContext } from "../ThemeContext/ThemeContext";
-import { SearchContext } from "../SearchContext/SearchContext";
 import { CartContext } from "../CartContext/CartContext";
 import Style from "./Header.module.css";
 import Img from "../../assets/Header/logo1.webp";
@@ -9,7 +8,6 @@ import Img from "../../assets/Header/logo1.webp";
 export default function Header() {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const { cart } = useContext(CartContext);
-  const { searchTerm, setSearchTerm } = useContext(SearchContext);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isHomeDropdownOpen, setIsHomeDropdownOpen] = useState(false);
   const [isHomeHovered, setIsHomeHovered] = useState(false);
@@ -40,14 +38,6 @@ export default function Header() {
 
   const handleLogoClick = () => {
     window.location.href = "/";
-  };
-
-  const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
-
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
   };
 
   // Close mobile menu when clicking outside
@@ -111,40 +101,7 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className={Style.desktopNav}>
-          {/* Search Bar */}
-          <div className={Style.searchContainer}>
-            <form onSubmit={handleSearchSubmit} className={Style.searchForm}>
-              <input
-                type="text"
-                placeholder="Perfect Fit ✨"
-                value={searchTerm}
-                onChange={handleSearchChange}
-                className={Style.searchInput}
-                id="desktop-search"
-                name="desktop-search"
-                autoComplete="off"
-              />
-              <button
-                type="submit"
-                className={Style.searchButton}
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-              </button>
-            </form>
-          </div>
-
+          
           {/* Home Dropdown */}
           <div
             className={Style.homeDropdown}
@@ -225,40 +182,6 @@ export default function Header() {
             isMobileMenuOpen ? Style.open : ""
           }`}
         >
-          {/* Mobile Search Bar */}
-          <div className={Style.mobileSearchContainer}>
-            <form onSubmit={handleSearchSubmit} className={Style.mobileSearchForm}>
-              <input
-                type="text"
-                placeholder="Perfect Fit ✨"
-                value={searchTerm}
-                onChange={handleSearchChange}
-                className={Style.mobileSearchInput}
-                id="mobile-search"
-                name="mobile-search"
-                autoComplete="off"
-              />
-              <button
-                type="submit"
-                className={Style.mobileSearchButton}
-              >
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-              </button>
-            </form>
-          </div>
-
           {/* Home Dropdown for Mobile */}
           <div className={Style.mobileHomeSection}>
             <button
